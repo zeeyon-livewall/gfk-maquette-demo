@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>GFK · Paramètres et rôles</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F3F5F8;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#1F2733;-webkit-font-smoothing:antialiased;font-size:14px}
+a{color:#1F2733;text-decoration:none}a:hover{color:#C2410C}
+h1,h2,h3,p,ul{margin:0}ul{padding:0;list-style:none}
+.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.sb{width:248px;flex:0 0 248px;background:#161C26;color:#C9D1DC;display:flex;flex-direction:column;padding:18px 14px 16px;gap:2px}
+.logo{display:flex;flex-direction:column;gap:5px;padding:6px 10px 16px;color:#fff}
+.logo:hover{color:#fff}
+.wm{font-family:"Exo 2",Inter,sans-serif;font-style:italic;font-weight:700;font-size:11.5px;color:#AEB8C6;letter-spacing:.01em}
+.navh{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:#7F8B9B;padding:14px 12px 6px;font-weight:600}
+.nv{display:flex;align-items:center;gap:12px;padding:0 12px;min-height:40px;border-radius:8px;color:#C9D1DC;font-size:13.5px;font-weight:500}
+.nv:hover{background:#222B38;color:#fff}
+.nv.on{background:#232D3B;color:#fff}
+.nv.on .i{color:#F4731C}
+.me{margin-top:auto;display:flex;align-items:center;gap:10px;padding:14px 8px 0;border-top:1px solid #2A3442;color:#fff;font-size:13px}
+.main{flex:999 1 560px;min-width:0;display:flex;flex-direction:column}
+.tb{min-height:64px;background:#fff;border-bottom:1px solid #E3E8EF;display:flex;align-items:center;gap:14px;padding:10px 28px;flex-wrap:wrap}
+.tb h1{font-size:18px;font-weight:700;letter-spacing:-.01em}
+.btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:8px;border:1px solid #D5DBE3;background:#fff;color:#1F2733;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;white-space:nowrap}
+.btn:hover{background:#F8FAFC;color:#1F2733}
+.btn.p{background:#C2410C;border-color:#C2410C;color:#fff}.btn.p:hover{background:#9A3412;color:#fff}
+.btn.sm{height:32px;padding:0 10px;font-size:12.5px}
+.content{padding:24px 28px 28px;display:flex;flex-direction:column;gap:20px}
+.card{background:#fff;border:1px solid #E3E8EF;border-radius:12px;padding:20px}
+.card h2{font-size:14.5px;font-weight:700}
+.ch{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.muted{color:#5B6675}
+.sub{font-size:12.5px;color:#5B6675}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap;line-height:1.4}
+.b-green{background:#E6F4EA;color:#166534}.b-blue{background:#E8F0FE;color:#1D4ED8}.b-amber{background:#FEF3C7;color:#92400E}.b-red{background:#FEE2E2;color:#B91C1C}.b-gray{background:#EEF1F5;color:#475467}.b-orange{background:#FFEDD5;color:#C2410C}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#5B6675;font-weight:600;padding:10px 10px;border-bottom:1px solid #E3E8EF;background:#F8FAFC;white-space:nowrap}
+td{padding:9px 10px;border-bottom:1px solid #EEF1F5;vertical-align:middle}
+tr:last-child td{border-bottom:0}
+.av{width:30px;height:30px;border-radius:50%;background:#E3E8EF;color:#1F2733;display:inline-flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;flex:0 0 30px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.grid{display:grid;gap:20px}
+.sn{display:flex;flex-direction:column;gap:2px}
+.sn a{display:flex;align-items:center;gap:10px;padding:0 12px;min-height:40px;border-radius:8px;font-size:13.5px;font-weight:500;color:#1F2733}
+.sn a:hover{background:#F8FAFC;color:#1F2733}
+.sn a.on{background:#FFEDD5;color:#C2410C;font-weight:600}
+.who{display:flex;align-items:center;gap:10px}
+.pm{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;white-space:nowrap}
+.pm .i{width:14px;height:14px}
+.full{color:#166534}.read{color:#1D4ED8}.part{color:#92400E}.none{color:#8A96A6}
+.int{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #EEF1F5;font-size:13px}
+.int:last-child{border-bottom:0}
+.sw{width:40px;height:22px;border-radius:11px;background:#15803D;position:relative;flex:0 0 40px;border:0;cursor:pointer}
+.sw:after{content:"";position:absolute;top:3px;right:3px;width:16px;height:16px;border-radius:50%;background:#fff}
+.sw.off{background:#C9D1DC}
+.sw.off:after{right:auto;left:3px}
+@media (max-width:900px){.grid{grid-template-columns:repeat(1,minmax(0,1fr)) !important}.sb{width:100%;flex-basis:100%}}
+</style>
+</helmet>
+<div style="display:flex;flex-wrap:wrap;min-height:100vh">
+<nav class="sb" aria-label="Navigation principale">
+<a href="Main.dc.html" class="logo" aria-label="GFK Transports et logistique, accueil">
+<svg viewBox="0 0 340 100" width="96" height="28" aria-hidden="true"><g transform="translate(22 0) skewX(-12)" fill="none" stroke="#FFFFFF" stroke-width="22"><path d="M89 11H11V89h67V52H52"/><path d="M123 100V11h74M123 53h58"/><path d="M235 0v100M312 0L238 58M258 42l52 58"/></g></svg>
+<span class="wm">Transports &amp; logistics</span>
+</a>
+<div class="navh">Pilotage</div>
+<a href="Main.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>Tableau de bord</a>
+<div class="navh">Exploitation</div>
+<a href="Planning.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>Planning &amp; dispatch</a>
+<a href="Commandes.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>Commandes</a>
+<a href="Clients.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2M10 6h4M10 10h4M10 14h4M10 18h4"/></svg>Clients</a>
+<div class="navh">Ressources</div>
+<a href="Flotte.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>Flotte</a>
+<a href="Chauffeurs.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Chauffeurs</a>
+<a href="Atelier.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Atelier &amp; entretien</a>
+<div class="navh">Finance &amp; conformité</div>
+<a href="Facturation.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8"/></svg>Facturation</a>
+<a href="Conformite.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>Conformité &amp; documents</a>
+<a href="Rapports.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16M18 17V9M13 17V5M8 17v-3"/></svg>Rapports</a>
+<div class="navh">Administration</div>
+<a href="Parametres.dc.html" class="nv on" aria-current="page"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Paramètres &amp; rôles</a>
+<a href="AppChauffeur.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>App chauffeur</a>
+<div class="me"><span class="av" style="background:#F4731C;color:#fff">GF</span><span style="display:flex;flex-direction:column;line-height:1.25"><strong style="font-size:13px">Direction GFK</strong><span style="font-size:11.5px;color:#8A96A6">Administrateur</span></span></div>
+</nav>
+<div class="main">
+<header class="tb">
+<div style="display:flex;flex-direction:column;gap:2px;margin-right:6px"><h1>Paramètres &amp; rôles</h1><span class="sub">Utilisateurs, permissions, intégrations et préférences de l'entreprise</span></div>
+<div style="margin-left:auto;display:flex;align-items:center;gap:10px">
+<button class="btn p" type="button"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg>Inviter un utilisateur</button>
+</div>
+</header>
+<main class="content">
+
+<div class="grid" style="grid-template-columns:220px minmax(0,1fr);align-items:start">
+<div class="card" style="padding:10px">
+<nav class="sn" aria-label="Sections des paramètres">
+<a href="#utilisateurs" class="on"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Utilisateurs et rôles</a>
+<a href="#entreprise"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></svg>Entreprise</a>
+<a href="#integrations"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Intégrations</a>
+<a href="#notifications"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>Notifications</a>
+<a href="#facturation"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Facturation et taxes</a>
+<a href="#securite"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Sécurité</a>
+</nav>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:20px;min-width:0">
+<div class="card" id="utilisateurs">
+<div class="ch"><div><h2>Utilisateurs</h2><span class="sub">7 comptes bureau · 38 comptes chauffeurs (application mobile)</span></div><button class="btn sm" type="button">Gérer les comptes chauffeurs</button></div>
+<div class="tw"><table>
+<thead><tr><th>Utilisateur</th><th>Rôle</th><th>Dernière connexion</th><th>Authentification</th><th>Statut</th><th>Action</th></tr></thead>
+<tbody>
+<tr><td><div class="who"><span class="av" style="background:#F4731C;color:#fff">GF</span><div><strong>Direction GFK</strong><div class="sub">direction@…</div></div></div></td><td><span class="badge b-orange">Administrateur</span></td><td>Aujourd'hui, 08 h 52</td><td>2 facteurs <span class="badge b-green">Activé</span></td><td><span class="badge b-green">Actif</span></td><td><button class="btn sm" type="button">Modifier</button></td></tr>
+<tr><td><div class="who"><span class="av">LF</span><div><strong>Lucie Fortin</strong><div class="sub">dispatch@…</div></div></div></td><td><span class="badge b-blue">Dispatcher</span></td><td>Aujourd'hui, 05 h 10</td><td>2 facteurs <span class="badge b-green">Activé</span></td><td><span class="badge b-green">Actif</span></td><td><button class="btn sm" type="button">Modifier</button></td></tr>
+<tr><td><div class="who"><span class="av">ML</span><div><strong>Marc Lemieux</strong><div class="sub">atelier@…</div></div></div></td><td><span class="badge b-gray">Chef d'atelier</span></td><td>Aujourd'hui, 06 h 40</td><td>2 facteurs <span class="badge b-green">Activé</span></td><td><span class="badge b-green">Actif</span></td><td><button class="btn sm" type="button">Modifier</button></td></tr>
+<tr><td><div class="who"><span class="av">SD</span><div><strong>Sylvain Dubois</strong><div class="sub">s.dubois@…</div></div></div></td><td><span class="badge b-gray">Mécanicien</span></td><td>Aujourd'hui, 07 h 02</td><td>Mot de passe <span class="badge b-amber">À activer</span></td><td><span class="badge b-green">Actif</span></td><td><button class="btn sm" type="button">Modifier</button></td></tr>
+<tr><td><div class="who"><span class="av">HC</span><div><strong>Hélène Caron</strong><div class="sub">comptabilite@…</div></div></div></td><td><span class="badge b-green">Comptabilité</span></td><td>Hier, 16 h 45</td><td>2 facteurs <span class="badge b-green">Activé</span></td><td><span class="badge b-green">Actif</span></td><td><button class="btn sm" type="button">Modifier</button></td></tr>
+<tr><td><div class="who"><span class="av">DR</span><div><strong>Daniel Roy</strong><div class="sub">rh@…</div></div></div></td><td><span class="badge b-amber">RH et conformité</span></td><td>Hier, 11 h 20</td><td>2 facteurs <span class="badge b-green">Activé</span></td><td><span class="badge b-green">Actif</span></td><td><button class="btn sm" type="button">Modifier</button></td></tr>
+<tr><td><div class="who"><span class="av">AP</span><div><strong>Alex Paquette</strong><div class="sub">a.paquette@…</div></div></div></td><td><span class="badge b-gray">Mécanicien</span></td><td class="muted">Jamais</td><td class="muted">—</td><td><span class="badge b-blue">Invitation envoyée</span></td><td><button class="btn sm" type="button">Renvoyer</button></td></tr>
+</tbody></table></div>
+</div>
+
+<div class="card">
+<div class="ch"><div><h2>Matrice des permissions par rôle</h2><span class="sub">Ce que chaque rôle peut voir et modifier · configurable par module</span></div><button class="btn sm" type="button">Créer un rôle</button></div>
+<div class="tw"><table>
+<thead><tr><th>Module</th><th>Direction</th><th>Dispatcher</th><th>Atelier</th><th>Comptabilité</th><th>RH et conformité</th><th>Chauffeur (mobile)</th></tr></thead>
+<tbody>
+<tr><td><strong>Tableau de bord</strong></td><td><span class="pm full">Complet</span></td><td><span class="pm part">Exploitation</span></td><td><span class="pm part">Atelier</span></td><td><span class="pm part">Finance</span></td><td><span class="pm part">Conformité</span></td><td><span class="pm none">—</span></td></tr>
+<tr><td><strong>Planning et dispatch</strong></td><td><span class="pm full">Complet</span></td><td><span class="pm full">Complet</span></td><td><span class="pm read">Lecture</span></td><td><span class="pm none">—</span></td><td><span class="pm read">Lecture</span></td><td><span class="pm part">Ses missions</span></td></tr>
+<tr><td><strong>Commandes</strong></td><td><span class="pm full">Complet</span></td><td><span class="pm full">Complet</span></td><td><span class="pm none">—</span></td><td><span class="pm read">Lecture</span></td><td><span class="pm none">—</span></td><td><span class="pm part">Ses missions</span></td></tr>
+<tr><td><strong>Clients et tarifs</strong></td><td><span class="pm full">Complet</span></td><td><span class="pm part">Sans les tarifs</span></td><td><span class="pm none">—</span></td><td><span class="pm full">Complet</span></td><td><span class="pm none">—</span></td><td><span class="pm none">—</span></td></tr>
+<tr><td><strong>Flotte</strong></td><td><span class="pm full">Complet</span></td><td><span class="pm read">Lecture</span></td><td><span class="pm full">Complet</span></td><td><span class="pm read">Lecture</span></td><td><span class="pm read">Lecture</span></td><td><span class="pm part">Son camion</span></td></tr>
+<tr><td><strong>Chauffeurs</strong></td><td><span class="pm full">Complet</span></td><td><span class="pm part">Sans la paie</span></td><td><span class="pm none">—</span></td><td><span class="pm part">Paie</span></td><td><span class="pm full">Complet</span></td><td><span class="pm part">Son profil</span></td></tr>
+<tr><td><strong>Atelier et entretien</strong></td><td><span class="pm full">Complet</span></td><td><span class="pm read">Lecture</span></td><td><span class="pm full">Complet</span></td><td><span class="pm read">Lecture</span></td><td><span class="pm none">—</span></td><td><span class="pm part">Signalements</span></td></tr>
+<tr><td><strong>Facturation</strong></td><td><span class="pm full">Complet</span></td><td><span class="pm none">—</span></td><td><span class="pm none">—</span></td><td><span class="pm full">Complet</span></td><td><span class="pm none">—</span></td><td><span class="pm none">—</span></td></tr>
+<tr><td><strong>Conformité et documents</strong></td><td><span class="pm full">Complet</span></td><td><span class="pm read">Lecture</span></td><td><span class="pm part">Véhicules</span></td><td><span class="pm read">Lecture</span></td><td><span class="pm full">Complet</span></td><td><span class="pm part">Ses documents</span></td></tr>
+<tr><td><strong>Rapports</strong></td><td><span class="pm full">Complet</span></td><td><span class="pm part">Exploitation</span></td><td><span class="pm part">Atelier</span></td><td><span class="pm full">Complet</span></td><td><span class="pm part">Conformité</span></td><td><span class="pm none">—</span></td></tr>
+<tr><td><strong>Paramètres</strong></td><td><span class="pm full">Complet</span></td><td><span class="pm none">—</span></td><td><span class="pm none">—</span></td><td><span class="pm part">Taxes</span></td><td><span class="pm part">Utilisateurs</span></td><td><span class="pm none">—</span></td></tr>
+</tbody></table></div>
+<div class="sub" style="margin-top:10px;display:flex;gap:16px;flex-wrap:wrap"><span class="pm full">Complet : lecture et modification</span><span class="pm read">Lecture seule</span><span class="pm part">Partiel : accès limité à un périmètre</span><span class="pm none">— : aucun accès</span></div>
+</div>
+
+<div class="card" id="integrations">
+<div class="ch"><div><h2>Intégrations</h2><span class="sub">Connecteurs disponibles · exemples à confirmer avec GFK</span></div></div>
+<div class="int"><span class="av" style="border-radius:8px">GPS</span><div style="flex:1"><strong>Télématique et GPS</strong><div class="sub">Positions en temps réel, kilométrage, journaux électroniques (ELD)</div></div><span class="badge b-green">Connecté</span><button class="sw" type="button" aria-label="Télématique activée"></button></div>
+<div class="int"><span class="av" style="border-radius:8px">CP</span><div style="flex:1"><strong>Comptabilité</strong><div class="sub">Export des factures et des paiements vers le logiciel comptable</div></div><span class="badge b-green">Connecté</span><button class="sw" type="button" aria-label="Comptabilité activée"></button></div>
+<div class="int"><span class="av" style="border-radius:8px">CB</span><div style="flex:1"><strong>Cartes de carburant</strong><div class="sub">Import automatique des transactions et rapprochement par camion</div></div><span class="badge b-green">Connecté</span><button class="sw" type="button" aria-label="Cartes de carburant activées"></button></div>
+<div class="int"><span class="av" style="border-radius:8px">PC</span><div style="flex:1"><strong>Portail client</strong><div class="sub">Suivi des livraisons, preuves de livraison et factures en libre-service</div></div><span class="badge b-green">Actif</span><button class="sw" type="button" aria-label="Portail client activé"></button></div>
+<div class="int"><span class="av" style="border-radius:8px">PA</span><div style="flex:1"><strong>Paie</strong><div class="sub">Export des heures et des kilomètres des chauffeurs</div></div><span class="badge b-amber">À configurer</span><button class="sw off" type="button" aria-label="Paie désactivée"></button></div>
+</div>
+</div>
+</div>
+
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1520}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GFK · Rapports</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F3F5F8;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#1F2733;-webkit-font-smoothing:antialiased;font-size:14px}
+a{color:#1F2733;text-decoration:none}a:hover{color:#C2410C}
+h1,h2,h3,p,ul{margin:0}ul{padding:0;list-style:none}
+.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.sb{width:248px;flex:0 0 248px;background:#161C26;color:#C9D1DC;display:flex;flex-direction:column;padding:18px 14px 16px;gap:2px}
+.logo{display:flex;flex-direction:column;gap:5px;padding:6px 10px 16px;color:#fff}
+.logo:hover{color:#fff}
+.wm{font-family:"Exo 2",Inter,sans-serif;font-style:italic;font-weight:700;font-size:11.5px;color:#AEB8C6;letter-spacing:.01em}
+.navh{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:#7F8B9B;padding:14px 12px 6px;font-weight:600}
+.nv{display:flex;align-items:center;gap:12px;padding:0 12px;min-height:40px;border-radius:8px;color:#C9D1DC;font-size:13.5px;font-weight:500}
+.nv:hover{background:#222B38;color:#fff}
+.nv.on{background:#232D3B;color:#fff}
+.nv.on .i{color:#F4731C}
+.me{margin-top:auto;display:flex;align-items:center;gap:10px;padding:14px 8px 0;border-top:1px solid #2A3442;color:#fff;font-size:13px}
+.main{flex:999 1 560px;min-width:0;display:flex;flex-direction:column}
+.tb{min-height:64px;background:#fff;border-bottom:1px solid #E3E8EF;display:flex;align-items:center;gap:14px;padding:10px 28px;flex-wrap:wrap}
+.tb h1{font-size:18px;font-weight:700;letter-spacing:-.01em}
+.btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:8px;border:1px solid #D5DBE3;background:#fff;color:#1F2733;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;white-space:nowrap}
+.btn:hover{background:#F8FAFC;color:#1F2733}
+.btn.p{background:#C2410C;border-color:#C2410C;color:#fff}.btn.p:hover{background:#9A3412;color:#fff}
+.btn.sm{height:32px;padding:0 10px;font-size:12.5px}
+.sel{height:38px;border:1px solid #D5DBE3;border-radius:8px;padding:0 34px 0 12px;font:inherit;font-size:13px;font-weight:500;background:#fff;color:#1F2733;appearance:none;-webkit-appearance:none}
+.fl{display:flex;flex-direction:column;gap:4px;font-size:11.5px;font-weight:600;color:#5B6675}
+.content{padding:24px 28px 28px;display:flex;flex-direction:column;gap:20px}
+.card{background:#fff;border:1px solid #E3E8EF;border-radius:12px;padding:20px}
+.card h2{font-size:14.5px;font-weight:700}
+.ch{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.muted{color:#5B6675}
+.sub{font-size:12.5px;color:#5B6675}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap;line-height:1.4}
+.b-green{background:#E6F4EA;color:#166534}.b-blue{background:#E8F0FE;color:#1D4ED8}.b-amber{background:#FEF3C7;color:#92400E}.b-red{background:#FEE2E2;color:#B91C1C}.b-gray{background:#EEF1F5;color:#475467}.b-orange{background:#FFEDD5;color:#C2410C}
+.av{width:30px;height:30px;border-radius:50%;background:#E3E8EF;color:#1F2733;display:inline-flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;flex:0 0 30px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.grid{display:grid;gap:20px}
+.lg{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#5B6675;align-items:center}
+.lg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.seg{display:flex;gap:2px;height:28px}
+.seg div{display:flex;align-items:center;padding-left:8px;border-radius:4px;font-size:11.5px;font-weight:700;color:#fff;min-width:0;overflow:hidden;white-space:nowrap}
+.lgl{display:flex;flex-direction:column;gap:6px;margin-top:12px;font-size:12.5px}
+.lgl div{display:flex;align-items:center;gap:8px}
+.lgl i{display:inline-block;width:10px;height:10px;border-radius:3px}
+.lgl b{margin-left:auto;font-variant-numeric:tabular-nums;font-weight:600}
+.st{background:#F8FAFC;border-radius:8px;padding:10px 12px}
+.st .l{font-size:12px;color:#5B6675}
+.st .v{font-size:18px;font-weight:700;letter-spacing:-.01em}
+@media (max-width:900px){.grid{grid-template-columns:repeat(1,minmax(0,1fr)) !important}.sb{width:100%;flex-basis:100%}}
+</style>
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+<div style="display:flex;flex-wrap:wrap;min-height:100vh">
+<nav class="sb" aria-label="Navigation principale">
+<a href="tableau-de-bord.html" class="logo" aria-label="GFK Transports et logistique, accueil">
+<svg viewBox="0 0 340 100" width="96" height="28" aria-hidden="true"><g transform="translate(22 0) skewX(-12)" fill="none" stroke="#FFFFFF" stroke-width="22"><path d="M89 11H11V89h67V52H52"/><path d="M123 100V11h74M123 53h58"/><path d="M235 0v100M312 0L238 58M258 42l52 58"/></g></svg>
+<span class="wm">Transports &amp; logistics</span>
+</a>
+<button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="navh">Pilotage</div>
+<a href="tableau-de-bord.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>Tableau de bord</a>
+<div class="navh">Exploitation</div>
+<a href="planning.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>Planning &amp; dispatch</a>
+<a href="commandes.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>Commandes</a>
+<a href="clients.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2M10 6h4M10 10h4M10 14h4M10 18h4"/></svg>Clients</a>
+<div class="navh">Ressources</div>
+<a href="flotte.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>Flotte</a>
+<a href="chauffeurs.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Chauffeurs</a>
+<a href="atelier.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Atelier &amp; entretien</a>
+<div class="navh">Finance &amp; conformité</div>
+<a href="facturation.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8"/></svg>Facturation</a>
+<a href="conformite.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>Conformité &amp; documents</a>
+<a href="rapports.html" class="nv on" aria-current="page"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16M18 17V9M13 17V5M8 17v-3"/></svg>Rapports</a>
+<div class="navh">Administration</div>
+<a href="parametres.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Paramètres &amp; rôles</a>
+<a href="app-chauffeur.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>App chauffeur</a>
+<div class="me"><span class="av" style="background:#F4731C;color:#fff">GF</span><span style="display:flex;flex-direction:column;line-height:1.25"><strong style="font-size:13px">Direction GFK</strong><span style="font-size:11.5px;color:#8A96A6">Administrateur</span></span></div>
+</nav>
+<div class="main">
+<header class="tb">
+<div style="display:flex;flex-direction:column;gap:2px;margin-right:6px"><h1>Rapports</h1><span class="sub">Performance de l'entreprise · 12 derniers mois</span></div>
+<div style="margin-left:auto;display:flex;align-items:center;gap:10px">
+<button class="btn" type="button">Planifier un envoi</button>
+<button class="btn p" type="button"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Exporter en PDF</button>
+</div>
+</header>
+<main class="content">
+
+<div class="card" style="display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;padding:14px 20px">
+<label class="fl">Période<select class="sel"><option>12 derniers mois</option><option>Année 2026</option><option>Trimestre en cours</option></select></label>
+<label class="fl">Comparer à<select class="sel"><option>Année précédente</option><option>Période précédente</option><option>Aucune</option></select></label>
+<label class="fl">Camions<select class="sel"><option>Tous les camions</option><option>Tracteurs</option><option>Porteurs</option></select></label>
+<label class="fl">Clients<select class="sel"><option>Tous les clients</option><option>Contrats cadres</option></select></label>
+<label class="fl">Chauffeurs<select class="sel"><option>Tous les chauffeurs</option></select></label>
+<span class="sub" style="margin-left:auto">Données au 12 nov. 2026, 09 h 00 · vue tableau disponible pour chaque graphique</span>
+</div>
+
+<div class="grid" style="grid-template-columns:1.5fr 1fr">
+<div class="card">
+<div class="ch"><div><h2>Chiffre d'affaires mensuel</h2><span class="sub">Milliers de dollars (CAD) · novembre en cours</span></div><div class="lg"><span><i style="background:#2a78d6"></i>Année en cours</span><span><i style="background:#7F8B9B"></i>Année précédente</span><button class="btn sm" type="button">Tableau</button></div></div>
+<svg viewBox="0 0 840 250" width="100%" role="img" aria-label="Chiffre d'affaires mensuel des 12 derniers mois comparé à l'année précédente, en hausse chaque mois, octobre 2026 à 634 mille dollars" style="display:block;font-family:Inter,sans-serif">
+<g stroke="#E3E8EF" stroke-width="1"><line x1="52" x2="828" y1="44.6" y2="44.6"/><line x1="52" x2="828" y1="101.7" y2="101.7"/><line x1="52" x2="828" y1="158.9" y2="158.9"/></g>
+<line x1="52" x2="828" y1="216" y2="216" stroke="#C9D1DC" stroke-width="1"/>
+<g font-size="11" fill="#5B6675" text-anchor="end"><text x="44" y="220">0</text><text x="44" y="163">200 k$</text><text x="44" y="106">400 k$</text><text x="44" y="49">600 k$</text></g>
+<g fill="#7F8B9B">
+<path d="M65.3 216V78a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Déc. 2024 : 497 000 $</title></path>
+<path d="M130 216V88a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Janv. 2025 : 462 000 $</title></path>
+<path d="M194.6 216V92a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Févr. 2025 : 448 000 $</title></path>
+<path d="M259.3 216V75.7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Mars 2025 : 505 000 $</title></path>
+<path d="M324 216V71.4a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Avr. 2025 : 520 000 $</title></path>
+<path d="M388.7 216V65.4a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Mai 2025 : 541 000 $</title></path>
+<path d="M453.3 216V60a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Juin 2025 : 560 000 $</title></path>
+<path d="M518 216V62.3a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Juil. 2025 : 552 000 $</title></path>
+<path d="M582.7 216V56.9a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Août 2025 : 571 000 $</title></path>
+<path d="M647.3 216V52.9a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Sept. 2025 : 585 000 $</title></path>
+<path d="M712 216V49.1a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Oct. 2025 : 598 000 $</title></path>
+<path d="M776.7 216V55.7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Nov. 2025 : 575 000 $</title></path>
+</g>
+<g fill="#2a78d6">
+<path d="M85.3 216V69.1a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Déc. 2025 : 528 000 $</title></path>
+<path d="M150 216V81.1a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Janv. 2026 : 486 000 $</title></path>
+<path d="M214.6 216V85.4a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Févr. 2026 : 471 000 $</title></path>
+<path d="M279.3 216V68a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Mars 2026 : 532 000 $</title></path>
+<path d="M344 216V63.4a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Avr. 2026 : 548 000 $</title></path>
+<path d="M408.7 216V56.9a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Mai 2026 : 571 000 $</title></path>
+<path d="M473.3 216V49.7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Juin 2026 : 596 000 $</title></path>
+<path d="M538 216V53.4a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Juil. 2026 : 583 000 $</title></path>
+<path d="M602.7 216V48a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Août 2026 : 602 000 $</title></path>
+<path d="M667.3 216V43.4a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Sept. 2026 : 618 000 $</title></path>
+<path d="M732 216V38.9a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Oct. 2026 : 634 000 $</title></path>
+<path d="M796.7 216V120.3a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4V216z"><title>Nov. 2026 (en cours) : 349 000 $</title></path>
+</g>
+<g font-size="11" fill="#1F2733" font-weight="600" text-anchor="middle"><text x="741" y="29">634</text><text x="805.7" y="111">349</text></g>
+<g font-size="11" fill="#5B6675" text-anchor="middle"><text x="84.3" y="236">déc.</text><text x="149" y="236">janv.</text><text x="213.6" y="236">févr.</text><text x="278.3" y="236">mars</text><text x="343" y="236">avr.</text><text x="407.7" y="236">mai</text><text x="472.3" y="236">juin</text><text x="537" y="236">juil.</text><text x="601.7" y="236">août</text><text x="666.3" y="236">sept.</text><text x="731" y="236">oct.</text><text x="795.7" y="236">nov.</text></g>
+</svg>
+<div class="sub" style="margin-top:8px">Cumul 12 mois : 3,92 M$ (+5,8 % vs année précédente) · meilleur mois : octobre 2026.</div>
+</div>
+<div class="card">
+<div class="ch"><div><h2>Répartition des coûts d'exploitation</h2><span class="sub">12 derniers mois · total 3,12 M$</span></div></div>
+<div class="seg" role="img" aria-label="Répartition des coûts : carburant 34 %, salaires des chauffeurs 31 %, entretien et pneus 12 %, amortissement et financement 11 %, assurances et permis 8 %, autres 4 %">
+<div style="flex:34 1 0;background:#2a78d6">34 %</div>
+<div style="flex:31 1 0;background:#eb6834">31 %</div>
+<div style="flex:12 1 0;background:#1baf7a">12 %</div>
+<div style="flex:11 1 0;background:#eda100;color:#0b0b0b">11 %</div>
+<div style="flex:8 1 0;background:#e87ba4">8 %</div>
+<div style="flex:4 1 0;background:#008300"></div>
+</div>
+<div class="lgl">
+<div><i style="background:#2a78d6"></i>Carburant<b>1,06 M$</b></div>
+<div><i style="background:#eb6834"></i>Salaires des chauffeurs<b>0,97 M$</b></div>
+<div><i style="background:#1baf7a"></i>Entretien et pneus<b>0,37 M$</b></div>
+<div><i style="background:#eda100"></i>Amortissement et financement<b>0,34 M$</b></div>
+<div><i style="background:#e87ba4"></i>Assurances et permis<b>0,25 M$</b></div>
+<div><i style="background:#008300"></i>Autres (péages, douanes, frais)<b>0,13 M$</b></div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:14px">
+<div class="st"><div class="l">Coût au km</div><div class="v">1,92 $</div></div>
+<div class="st"><div class="l">Revenu au km</div><div class="v">2,38 $</div></div>
+<div class="st"><div class="l">Marge nette</div><div class="v" style="color:#166534">9,8 %</div></div>
+</div>
+</div>
+</div>
+
+<div class="grid" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<div class="card">
+<div class="ch"><div><h2>Kilomètres par camion</h2><span class="sub">Octobre 2026 · 6 premiers</span></div></div>
+<svg viewBox="0 0 400 184" width="100%" role="img" aria-label="Kilomètres parcourus en octobre par camion : T-121 14 820 km, T-126 13 940, T-112 12 870, T-108 11 650, T-115 11 020, T-131 10 480" style="display:block;font-family:Inter,sans-serif">
+<line x1="58" x2="58" y1="4" y2="178" stroke="#C9D1DC" stroke-width="1"/>
+<g font-size="12" fill="#5B6675" text-anchor="end"><text x="50" y="20">T-121</text><text x="50" y="50">T-126</text><text x="50" y="80">T-112</text><text x="50" y="110">T-108</text><text x="50" y="140">T-115</text><text x="50" y="170">T-131</text></g>
+<g fill="#2a78d6">
+<path d="M58 8h266a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H58z"><title>T-121 : 14 820 km</title></path>
+<path d="M58 38h250a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H58z"><title>T-126 : 13 940 km</title></path>
+<path d="M58 68h230a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H58z"><title>T-112 : 12 870 km</title></path>
+<path d="M58 98h208a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H58z"><title>T-108 : 11 650 km</title></path>
+<path d="M58 128h197a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H58z"><title>T-115 : 11 020 km</title></path>
+<path d="M58 158h187a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H58z"><title>T-131 : 10 480 km</title></path>
+</g>
+<g font-size="11.5" fill="#1F2733" font-weight="600"><text x="334" y="20">14 820</text><text x="318" y="50">13 940</text><text x="298" y="80">12 870</text><text x="276" y="110">11 650</text><text x="265" y="140">11 020</text><text x="255" y="170">10 480</text></g>
+</svg>
+<div class="sub" style="margin-top:8px">Moyenne de la flotte : 9 860 km par camion · 14 % de retours à vide.</div>
+</div>
+<div class="card">
+<div class="ch"><div><h2>Consommation de carburant</h2><span class="sub">Litres aux 100 km · moyenne hebdomadaire de la flotte</span></div></div>
+<svg viewBox="0 0 400 184" width="100%" role="img" aria-label="Consommation moyenne de la flotte sur 12 semaines, en baisse de 37,4 à 36,2 litres aux 100 km" style="display:block;font-family:Inter,sans-serif">
+<g stroke="#E3E8EF" stroke-width="1"><line x1="40" x2="372" y1="16" y2="16"/><line x1="40" x2="372" y1="67.3" y2="67.3"/><line x1="40" x2="372" y1="118.7" y2="118.7"/></g>
+<line x1="40" x2="372" y1="170" y2="170" stroke="#C9D1DC" stroke-width="1"/>
+<g font-size="11" fill="#5B6675" text-anchor="end"><text x="34" y="174">35</text><text x="34" y="123">36</text><text x="34" y="71">37</text><text x="34" y="20">38 L</text></g>
+<path d="M40 46.8L70 62.2L100 72.5L130 51.9L160 77.6L190 93L220 82.7L250 108.4L280 98.1L310 118.7L340 103.3L370 108.4V170H40z" fill="#2a78d6" fill-opacity="0.1"/>
+<path d="M40 46.8L70 62.2L100 72.5L130 51.9L160 77.6L190 93L220 82.7L250 108.4L280 98.1L310 118.7L340 103.3L370 108.4" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<g fill="#2a78d6" stroke="#FFFFFF" stroke-width="2"><circle cx="40" cy="46.8" r="4"><title>S35 : 37,4 L/100 km</title></circle><circle cx="130" cy="51.9" r="4"><title>S38 : 37,3 L/100 km</title></circle><circle cx="250" cy="108.4" r="4"><title>S42 : 36,2 L/100 km</title></circle><circle cx="370" cy="108.4" r="4"><title>S46 : 36,2 L/100 km</title></circle></g>
+<g font-size="11" fill="#1F2733" font-weight="600"><text x="28" y="38">37,4</text><text x="356" y="130">36,2</text></g>
+<g font-size="11" fill="#5B6675" text-anchor="middle"><text x="40" y="184">S35</text><text x="130" y="184">S38</text><text x="220" y="184">S41</text><text x="310" y="184">S44</text><text x="370" y="184">S46</text></g>
+</svg>
+<div class="sub" style="margin-top:8px">Objectif 36,0 L · économie estimée depuis septembre : 4 100 $ par mois.</div>
+</div>
+<div class="card">
+<div class="ch"><div><h2>Qualité de service</h2><span class="sub">30 derniers jours · 640 missions</span></div></div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+<div class="st"><div class="l">Ponctualité</div><div class="v">96,4 %</div><div class="sub"><span class="badge b-green">+1,2 pt</span></div></div>
+<div class="st"><div class="l">Livraisons en retard</div><div class="v">23</div><div class="sub">dont 9 dues au client</div></div>
+<div class="st"><div class="l">Incidents routiers</div><div class="v">1</div><div class="sub">mineur · sans blessé</div></div>
+<div class="st"><div class="l">Réclamations clients</div><div class="v">2</div><div class="sub">1 avarie · 1 délai</div></div>
+<div class="st"><div class="l">Retours à vide</div><div class="v">14 %</div><div class="sub"><span class="badge b-green">−2 pts</span></div></div>
+<div class="st"><div class="l">Taux d'utilisation</div><div class="v">83 %</div><div class="sub">objectif 85 %</div></div>
+</div>
+</div>
+</div>
+
+</main>
+</div>
+</div>
+<script src="demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GFK · Clients</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F3F5F8;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#1F2733;-webkit-font-smoothing:antialiased;font-size:14px}
+a{color:#1F2733;text-decoration:none}a:hover{color:#C2410C}
+h1,h2,h3,p,ul{margin:0}ul{padding:0;list-style:none}
+.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.sb{width:248px;flex:0 0 248px;background:#161C26;color:#C9D1DC;display:flex;flex-direction:column;padding:18px 14px 16px;gap:2px}
+.logo{display:flex;flex-direction:column;gap:5px;padding:6px 10px 16px;color:#fff}
+.logo:hover{color:#fff}
+.wm{font-family:"Exo 2",Inter,sans-serif;font-style:italic;font-weight:700;font-size:11.5px;color:#AEB8C6;letter-spacing:.01em}
+.navh{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:#7F8B9B;padding:14px 12px 6px;font-weight:600}
+.nv{display:flex;align-items:center;gap:12px;padding:0 12px;min-height:40px;border-radius:8px;color:#C9D1DC;font-size:13.5px;font-weight:500}
+.nv:hover{background:#222B38;color:#fff}
+.nv.on{background:#232D3B;color:#fff}
+.nv.on .i{color:#F4731C}
+.me{margin-top:auto;display:flex;align-items:center;gap:10px;padding:14px 8px 0;border-top:1px solid #2A3442;color:#fff;font-size:13px}
+.main{flex:999 1 560px;min-width:0;display:flex;flex-direction:column}
+.tb{min-height:64px;background:#fff;border-bottom:1px solid #E3E8EF;display:flex;align-items:center;gap:14px;padding:10px 28px;flex-wrap:wrap}
+.tb h1{font-size:18px;font-weight:700;letter-spacing:-.01em}
+.search{display:flex;align-items:center;gap:8px;flex:1 1 200px;max-width:380px;height:40px;border:1px solid #D5DBE3;border-radius:8px;padding:0 12px;background:#F8FAFC;color:#5B6675;position:relative}
+.search input{border:0;background:transparent;font:inherit;font-size:13.5px;flex:1;min-width:0;color:#1F2733;outline:none}
+.btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:8px;border:1px solid #D5DBE3;background:#fff;color:#1F2733;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;white-space:nowrap}
+.btn:hover{background:#F8FAFC;color:#1F2733}
+.btn.p{background:#C2410C;border-color:#C2410C;color:#fff}.btn.p:hover{background:#9A3412;color:#fff}
+.btn.sm{height:32px;padding:0 10px;font-size:12.5px}
+.chip{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:999px;border:1px solid #D5DBE3;background:#fff;font:inherit;font-size:12.5px;font-weight:600;color:#5B6675;cursor:pointer}
+.chip.on{background:#1F2733;border-color:#1F2733;color:#fff}
+.content{padding:24px 28px 28px;display:flex;flex-direction:column;gap:20px}
+.card{background:#fff;border:1px solid #E3E8EF;border-radius:12px;padding:20px}
+.card h2{font-size:14.5px;font-weight:700}
+.ch{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.muted{color:#5B6675}
+.sub{font-size:12.5px;color:#5B6675}
+.kpi{display:flex;flex-direction:column;gap:6px}
+.kpi .l{font-size:12.5px;color:#5B6675;font-weight:500}
+.kpi .v{font-size:24px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap;line-height:1.4}
+.b-green{background:#E6F4EA;color:#166534}.b-blue{background:#E8F0FE;color:#1D4ED8}.b-amber{background:#FEF3C7;color:#92400E}.b-red{background:#FEE2E2;color:#B91C1C}.b-gray{background:#EEF1F5;color:#475467}.b-orange{background:#FFEDD5;color:#C2410C}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#5B6675;font-weight:600;padding:9px 8px;border-bottom:1px solid #E3E8EF;background:#F8FAFC;white-space:nowrap}
+td{padding:9px 8px;border-bottom:1px solid #EEF1F5;vertical-align:middle}
+tr:last-child td{border-bottom:0}
+.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.av{width:30px;height:30px;border-radius:50%;background:#E3E8EF;color:#1F2733;display:inline-flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;flex:0 0 30px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.grid{display:grid;gap:20px}
+.lnk{border:0;background:none;padding:0;white-space:nowrap;font:inherit;font-weight:700;color:#1F2733;cursor:pointer;text-align:left}
+.lnk:hover{color:#C2410C}
+.who{display:flex;align-items:center;gap:10px}
+@media (max-width:900px){.grid{grid-template-columns:repeat(1,minmax(0,1fr)) !important}.sb{width:100%;flex-basis:100%}}
+</style>
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+<div style="display:flex;flex-wrap:wrap;min-height:100vh">
+<nav class="sb" aria-label="Navigation principale">
+<a href="tableau-de-bord.html" class="logo" aria-label="GFK Transports et logistique, accueil">
+<svg viewBox="0 0 340 100" width="96" height="28" aria-hidden="true"><g transform="translate(22 0) skewX(-12)" fill="none" stroke="#FFFFFF" stroke-width="22"><path d="M89 11H11V89h67V52H52"/><path d="M123 100V11h74M123 53h58"/><path d="M235 0v100M312 0L238 58M258 42l52 58"/></g></svg>
+<span class="wm">Transports &amp; logistics</span>
+</a>
+<button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="navh">Pilotage</div>
+<a href="tableau-de-bord.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>Tableau de bord</a>
+<div class="navh">Exploitation</div>
+<a href="planning.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>Planning &amp; dispatch</a>
+<a href="commandes.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>Commandes</a>
+<a href="clients.html" class="nv on" aria-current="page"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2M10 6h4M10 10h4M10 14h4M10 18h4"/></svg>Clients</a>
+<div class="navh">Ressources</div>
+<a href="flotte.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>Flotte</a>
+<a href="chauffeurs.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Chauffeurs</a>
+<a href="atelier.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Atelier &amp; entretien</a>
+<div class="navh">Finance &amp; conformité</div>
+<a href="facturation.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8"/></svg>Facturation</a>
+<a href="conformite.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>Conformité &amp; documents</a>
+<a href="rapports.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16M18 17V9M13 17V5M8 17v-3"/></svg>Rapports</a>
+<div class="navh">Administration</div>
+<a href="parametres.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Paramètres &amp; rôles</a>
+<a href="app-chauffeur.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>App chauffeur</a>
+<div class="me"><span class="av" style="background:#F4731C;color:#fff">GF</span><span style="display:flex;flex-direction:column;line-height:1.25"><strong style="font-size:13px">Direction GFK</strong><span style="font-size:11.5px;color:#8A96A6">Administrateur</span></span></div>
+</nav>
+<div class="main">
+<header class="tb">
+<div style="display:flex;flex-direction:column;gap:2px;margin-right:6px"><h1>Clients</h1><span class="sub">58 clients actifs · 12 contrats cadres · grilles tarifaires 2026</span></div>
+<label class="search"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span class="sr">Rechercher un client</span><input type="search" placeholder="Nom, contact, ville…"></label>
+<div style="margin-left:auto;display:flex;align-items:center;gap:10px">
+<button class="btn" type="button">Grilles tarifaires</button>
+<button class="btn p" type="button"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg>Nouveau client</button>
+</div>
+</header>
+<main class="content">
+
+<div class="grid" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+<div class="card kpi"><span class="l">Clients actifs (12 mois)</span><span class="v">58</span><span class="sub"><span class="badge b-green">+6</span> nouveaux clients en 2026</span></div>
+<div class="card kpi"><span class="l">Chiffre d'affaires 12 mois</span><span class="v">3,9 M$</span><span class="sub">2 340 missions facturées</span></div>
+<div class="card kpi"><span class="l">Concentration</span><span class="v">64 %</span><span class="sub">du chiffre d'affaires réalisé avec les 5 premiers clients</span></div>
+<div class="card kpi"><span class="l">Ponctualité moyenne</span><span class="v">96,4 %</span><span class="sub">Objectif contractuel 95 %</span></div>
+</div>
+
+<div class="grid" style="grid-template-columns:minmax(0,1fr) 340px;align-items:start">
+<div class="card" style="min-width:0">
+<div class="ch"><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="chip on" type="button">Tous (58)</button><button class="chip" type="button">Contrat cadre (12)</button><button class="chip" type="button">Agroalimentaire (19)</button><button class="chip" type="button">Industrie (14)</button><button class="chip" type="button">Distribution (11)</button></div><span class="sub">Trié par chiffre d'affaires</span></div>
+<div class="tw"><table>
+<thead><tr><th>Client</th><th class="num">Missions 12 m</th><th class="num">CA 12 mois</th><th>Paiement</th><th class="num">Ponctualité</th></tr></thead>
+<tbody>
+<tr><td><div class="who"><span class="av">AL</span><div><button type="button" class="lnk">Aliments Lemieux</button><div class="sub">Contrat 2026 · Agroalimentaire · Laval</div></div></div></td><td class="num">412</td><td class="num" style="font-weight:600">684 300 $</td><td style="white-space:nowrap">30 jours <span class="badge b-green">À jour</span></td><td class="num">98 %</td></tr>
+<tr><td><div class="who"><span class="av">DB</span><div><button type="button" class="lnk">Distribution Boréal</button><div class="sub">Contrat 2026 · Distribution · Québec</div></div></div></td><td class="num">356</td><td class="num" style="font-weight:600">598 100 $</td><td style="white-space:nowrap">45 jours <span class="badge b-green">À jour</span></td><td class="num">97 %</td></tr>
+<tr><td><div class="who"><span class="av">PL</span><div><button type="button" class="lnk">Papiers Laurentides</button><div class="sub">Contrat 2026 · Industrie · Trois-Rivières</div></div></div></td><td class="num">288</td><td class="num" style="font-weight:600">512 400 $</td><td style="white-space:nowrap">30 jours <span class="badge b-green">À jour</span></td><td class="num">96 %</td></tr>
+<tr><td><div class="who"><span class="av">MB</span><div><button type="button" class="lnk">Métallurgie Beauce</button><div class="sub">Au voyage · Industrie · Saint-Georges</div></div></div></td><td class="num">141</td><td class="num" style="font-weight:600">388 900 $</td><td style="white-space:nowrap">60 jours <span class="badge b-green">À jour</span></td><td class="num">94 %</td></tr>
+<tr><td><div class="who"><span class="av">GR</span><div><button type="button" class="lnk">Groupe Rivière</button><div class="sub">Contrat 2026 · Manufacturier · Drummondville</div></div></div></td><td class="num">219</td><td class="num" style="font-weight:600">301 200 $</td><td style="white-space:nowrap">30 jours <span class="badge b-green">À jour</span></td><td class="num">97 %</td></tr>
+<tr><td><div class="who"><span class="av">EC</span><div><button type="button" class="lnk">Emballages Carrière</button><div class="sub">Au voyage · Emballage · Montréal</div></div></div></td><td class="num">164</td><td class="num" style="font-weight:600">246 500 $</td><td style="white-space:nowrap">45 jours <span class="badge b-red">33 j de retard</span></td><td class="num">95 %</td></tr>
+<tr><td><div class="who"><span class="av">FC</span><div><button type="button" class="lnk">Fromagerie des Cantons</button><div class="sub">Contrat 2026 · Agroalimentaire · Sherbrooke</div></div></div></td><td class="num">198</td><td class="num" style="font-weight:600">183 700 $</td><td style="white-space:nowrap">30 jours <span class="badge b-green">À jour</span></td><td class="num">99 %</td></tr>
+<tr><td><div class="who"><span class="av">QN</span><div><button type="button" class="lnk">Quincaillerie Nord-Est</button><div class="sub">Au voyage · Distribution · Rimouski</div></div></div></td><td class="num">122</td><td class="num" style="font-weight:600">171 900 $</td><td style="white-space:nowrap">30 jours <span class="badge b-amber">18 j de retard</span></td><td class="num">93 %</td></tr>
+<tr><td><div class="who"><span class="av">BM</span><div><button type="button" class="lnk">Brasserie Mont-Royal</button><div class="sub">Au voyage · Agroalimentaire · Montréal</div></div></div></td><td class="num">86</td><td class="num" style="font-weight:600">158 400 $</td><td style="white-space:nowrap">30 jours <span class="badge b-green">À jour</span></td><td class="num">96 %</td></tr>
+<tr><td><div class="who"><span class="av">MD</span><div><button type="button" class="lnk">Meubles Dorval</button><div class="sub">Au voyage · Manufacturier · Dorval</div></div></div></td><td class="num">64</td><td class="num" style="font-weight:600">92 800 $</td><td style="white-space:nowrap">30 jours <span class="badge b-amber">5 j de retard</span></td><td class="num">95 %</td></tr>
+</tbody></table></div>
+<div class="sub" style="margin-top:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px"><span>10 clients affichés sur 58</span><span style="display:flex;gap:6px"><button class="btn sm" type="button">Précédent</button><button class="btn sm" type="button">Suivant</button></span></div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:20px;min-width:0">
+<div class="card">
+<div class="ch"><div><h2>Chiffre d'affaires par client</h2><span class="sub">12 derniers mois · 8 premiers clients</span></div></div>
+<div style="display:flex;flex-direction:column;gap:9px" role="img" aria-label="Chiffre d'affaires des 8 premiers clients sur 12 mois, de 684 300 dollars pour Aliments Lemieux à 171 900 dollars pour Quincaillerie Nord-Est">
+<div style="display:flex;align-items:center;gap:10px;font-size:12.5px" title="Aliments Lemieux : 684 300 $"><span style="width:136px;flex:0 0 136px;color:#5B6675;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Aliments Lemieux</span><span style="flex:1;height:14px;display:block;border-left:1px solid #C9D1DC"><span style="display:block;height:100%;width:100%;background:#2a78d6;border-radius:0 4px 4px 0"></span></span><span style="width:66px;flex:0 0 66px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums">684 300 $</span></div>
+<div style="display:flex;align-items:center;gap:10px;font-size:12.5px" title="Distribution Boréal : 598 100 $"><span style="width:136px;flex:0 0 136px;color:#5B6675;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Distribution Boréal</span><span style="flex:1;height:14px;display:block;border-left:1px solid #C9D1DC"><span style="display:block;height:100%;width:87%;background:#2a78d6;border-radius:0 4px 4px 0"></span></span><span style="width:66px;flex:0 0 66px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums">598 100 $</span></div>
+<div style="display:flex;align-items:center;gap:10px;font-size:12.5px" title="Papiers Laurentides : 512 400 $"><span style="width:136px;flex:0 0 136px;color:#5B6675;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Papiers Laurentides</span><span style="flex:1;height:14px;display:block;border-left:1px solid #C9D1DC"><span style="display:block;height:100%;width:75%;background:#2a78d6;border-radius:0 4px 4px 0"></span></span><span style="width:66px;flex:0 0 66px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums">512 400 $</span></div>
+<div style="display:flex;align-items:center;gap:10px;font-size:12.5px" title="Métallurgie Beauce : 388 900 $"><span style="width:136px;flex:0 0 136px;color:#5B6675;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Métallurgie Beauce</span><span style="flex:1;height:14px;display:block;border-left:1px solid #C9D1DC"><span style="display:block;height:100%;width:57%;background:#2a78d6;border-radius:0 4px 4px 0"></span></span><span style="width:66px;flex:0 0 66px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums">388 900 $</span></div>
+<div style="display:flex;align-items:center;gap:10px;font-size:12.5px" title="Groupe Rivière : 301 200 $"><span style="width:136px;flex:0 0 136px;color:#5B6675;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Groupe Rivière</span><span style="flex:1;height:14px;display:block;border-left:1px solid #C9D1DC"><span style="display:block;height:100%;width:44%;background:#2a78d6;border-radius:0 4px 4px 0"></span></span><span style="width:66px;flex:0 0 66px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums">301 200 $</span></div>
+<div style="display:flex;align-items:center;gap:10px;font-size:12.5px" title="Emballages Carrière : 246 500 $"><span style="width:136px;flex:0 0 136px;color:#5B6675;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Emballages Carrière</span><span style="flex:1;height:14px;display:block;border-left:1px solid #C9D1DC"><span style="display:block;height:100%;width:36%;background:#2a78d6;border-radius:0 4px 4px 0"></span></span><span style="width:66px;flex:0 0 66px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums">246 500 $</span></div>
+<div style="display:flex;align-items:center;gap:10px;font-size:12.5px" title="Fromagerie des Cantons : 183 700 $"><span style="width:136px;flex:0 0 136px;color:#5B6675;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Fromagerie des Cantons</span><span style="flex:1;height:14px;display:block;border-left:1px solid #C9D1DC"><span style="display:block;height:100%;width:27%;background:#2a78d6;border-radius:0 4px 4px 0"></span></span><span style="width:66px;flex:0 0 66px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums">183 700 $</span></div>
+<div style="display:flex;align-items:center;gap:10px;font-size:12.5px" title="Quincaillerie Nord-Est : 171 900 $"><span style="width:136px;flex:0 0 136px;color:#5B6675;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Quincaillerie Nord-Est</span><span style="flex:1;height:14px;display:block;border-left:1px solid #C9D1DC"><span style="display:block;height:100%;width:25%;background:#2a78d6;border-radius:0 4px 4px 0"></span></span><span style="width:66px;flex:0 0 66px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums">171 900 $</span></div>
+</div>
+</div>
+<div class="card">
+<div class="ch"><h2>Fiche client · Aliments Lemieux</h2><span class="badge b-blue">Contrat 2026</span></div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;font-size:13px">
+<div style="background:#F8FAFC;border-radius:8px;padding:10px"><div class="sub">Contact principal</div><div style="font-weight:600">Marc Lafleur</div><div class="sub">Logistique · (450) 555-0201</div></div>
+<div style="background:#F8FAFC;border-radius:8px;padding:10px"><div class="sub">Conditions</div><div style="font-weight:600">Net 30 jours</div><div class="sub">Limite de crédit 120 000 $</div></div>
+<div style="background:#F8FAFC;border-radius:8px;padding:10px"><div class="sub">Tarif Laval → Toronto</div><div style="font-weight:600">1 720 $ · réfrigéré</div><div class="sub">Surcharge carburant 18,5 %</div></div>
+<div style="background:#F8FAFC;border-radius:8px;padding:10px"><div class="sub">Exigences</div><div style="font-weight:600">Relevé de température</div><div class="sub">Rendez-vous de livraison obligatoire</div></div>
+</div>
+<div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><a class="btn sm" href="commandes.html">Commandes</a><a class="btn sm" href="facturation.html">Factures</a><button class="btn sm" type="button">Portail client</button></div>
+</div>
+</div>
+</div>
+
+</main>
+</div>
+</div>
+<script src="demo.js"></script>
+</body>
+</html>

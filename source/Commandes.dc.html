@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>GFK · Commandes de transport</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F3F5F8;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#1F2733;-webkit-font-smoothing:antialiased;font-size:14px}
+a{color:#1F2733;text-decoration:none}a:hover{color:#C2410C}
+h1,h2,h3,p,ul{margin:0}ul{padding:0;list-style:none}
+.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.sb{width:248px;flex:0 0 248px;background:#161C26;color:#C9D1DC;display:flex;flex-direction:column;padding:18px 14px 16px;gap:2px}
+.logo{display:flex;flex-direction:column;gap:5px;padding:6px 10px 16px;color:#fff}
+.logo:hover{color:#fff}
+.wm{font-family:"Exo 2",Inter,sans-serif;font-style:italic;font-weight:700;font-size:11.5px;color:#AEB8C6;letter-spacing:.01em}
+.navh{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:#7F8B9B;padding:14px 12px 6px;font-weight:600}
+.nv{display:flex;align-items:center;gap:12px;padding:0 12px;min-height:40px;border-radius:8px;color:#C9D1DC;font-size:13.5px;font-weight:500}
+.nv:hover{background:#222B38;color:#fff}
+.nv.on{background:#232D3B;color:#fff}
+.nv.on .i{color:#F4731C}
+.me{margin-top:auto;display:flex;align-items:center;gap:10px;padding:14px 8px 0;border-top:1px solid #2A3442;color:#fff;font-size:13px}
+.main{flex:999 1 560px;min-width:0;display:flex;flex-direction:column}
+.tb{min-height:64px;background:#fff;border-bottom:1px solid #E3E8EF;display:flex;align-items:center;gap:14px;padding:10px 28px;flex-wrap:wrap}
+.tb h1{font-size:18px;font-weight:700;letter-spacing:-.01em}
+.search{display:flex;align-items:center;gap:8px;flex:1 1 200px;max-width:380px;height:40px;border:1px solid #D5DBE3;border-radius:8px;padding:0 12px;background:#F8FAFC;color:#5B6675;position:relative}
+.search input{border:0;background:transparent;font:inherit;font-size:13.5px;flex:1;min-width:0;color:#1F2733;outline:none}
+.ib{position:relative;width:40px;height:40px;border:1px solid #D5DBE3;border-radius:8px;background:#fff;display:inline-flex;align-items:center;justify-content:center;color:#1F2733;cursor:pointer;padding:0}
+.ib .n{position:absolute;top:-7px;right:-7px;min-width:18px;height:18px;border-radius:9px;background:#B91C1C;color:#fff;font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 5px;border:2px solid #fff}
+.btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:8px;border:1px solid #D5DBE3;background:#fff;color:#1F2733;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;white-space:nowrap}
+.btn:hover{background:#F8FAFC;color:#1F2733}
+.btn.p{background:#C2410C;border-color:#C2410C;color:#fff}.btn.p:hover{background:#9A3412;color:#fff}
+.btn.sm{height:32px;padding:0 10px;font-size:12.5px}
+.sel{height:38px;border:1px solid #D5DBE3;border-radius:8px;padding:0 34px 0 12px;font:inherit;font-size:13px;font-weight:500;background:#fff;color:#1F2733;appearance:none;-webkit-appearance:none}
+.content{padding:24px 28px 28px;display:flex;flex-direction:column;gap:20px}
+.card{background:#fff;border:1px solid #E3E8EF;border-radius:12px;padding:20px}
+.card h2{font-size:14.5px;font-weight:700}
+.ch{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.muted{color:#5B6675}
+.sub{font-size:12.5px;color:#5B6675}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap;line-height:1.4}
+.b-green{background:#E6F4EA;color:#166534}.b-blue{background:#E8F0FE;color:#1D4ED8}.b-amber{background:#FEF3C7;color:#92400E}.b-red{background:#FEE2E2;color:#B91C1C}.b-gray{background:#EEF1F5;color:#475467}.b-orange{background:#FFEDD5;color:#C2410C}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#5B6675;font-weight:600;padding:10px 10px;border-bottom:1px solid #E3E8EF;background:#F8FAFC;white-space:nowrap}
+td{padding:10px 10px;border-bottom:1px solid #EEF1F5;vertical-align:middle}
+tr.row{cursor:pointer}
+tr.row:hover td{background:#F8FAFC}
+tr.row.sel td{background:#FFF7ED}
+.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.lnk{border:0;background:none;padding:0;font:inherit;font-weight:700;color:#1F2733;cursor:pointer;text-align:left}
+.lnk:hover{color:#C2410C}
+.tabs{display:flex;gap:4px;border-bottom:1px solid #E3E8EF;margin-bottom:14px;flex-wrap:wrap}
+.tab{border:0;background:none;font:inherit;font-size:13.5px;font-weight:600;color:#5B6675;padding:10px 12px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;display:inline-flex;align-items:center;gap:8px;min-height:44px}
+.tab:hover{color:#1F2733}
+.tab.on{color:#C2410C;border-bottom-color:#C2410C}
+.cnt{background:#EEF1F5;color:#475467;border-radius:999px;padding:1px 7px;font-size:11.5px;font-weight:700}
+.tab.on .cnt{background:#FFEDD5;color:#C2410C}
+.av{width:30px;height:30px;border-radius:50%;background:#E3E8EF;color:#1F2733;display:inline-flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;flex:0 0 30px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.grid{display:grid;gap:20px}
+.kv{display:grid;grid-template-columns:110px minmax(0,1fr);gap:6px 10px;font-size:13px}
+.kv dt{color:#5B6675;margin:0}.kv dd{margin:0;font-weight:500}
+.st{display:flex;gap:10px;align-items:flex-start;padding:0 0 14px;position:relative}
+.st:before{content:"";position:absolute;left:7px;top:18px;bottom:0;width:2px;background:#E3E8EF}
+.st:last-child:before{display:none}
+.st .d{width:16px;height:16px;border-radius:50%;border:2px solid #C9D1DC;background:#fff;flex:0 0 16px;margin-top:1px}
+.st.done .d{background:#15803D;border-color:#15803D}
+.st.now .d{border-color:#C2410C;background:#fff;box-shadow:inset 0 0 0 3px #FFEDD5}
+.st .l{font-size:13px;font-weight:600}.st .t{font-size:12px;color:#5B6675}
+.st:not(.done):not(.now) .l{color:#5B6675;font-weight:500}
+.doc{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #EEF1F5;font-size:13px}
+.doc:last-child{border-bottom:0}
+.sec{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:#5B6675;font-weight:700;margin:16px 0 8px}
+@media (max-width:900px){.grid{grid-template-columns:repeat(1,minmax(0,1fr)) !important}.sb{width:100%;flex-basis:100%}}
+</style>
+</helmet>
+<div style="display:flex;flex-wrap:wrap;min-height:100vh">
+<nav class="sb" aria-label="Navigation principale">
+<a href="Main.dc.html" class="logo" aria-label="GFK Transports et logistique, accueil">
+<svg viewBox="0 0 340 100" width="96" height="28" aria-hidden="true"><g transform="translate(22 0) skewX(-12)" fill="none" stroke="#FFFFFF" stroke-width="22"><path d="M89 11H11V89h67V52H52"/><path d="M123 100V11h74M123 53h58"/><path d="M235 0v100M312 0L238 58M258 42l52 58"/></g></svg>
+<span class="wm">Transports &amp; logistics</span>
+</a>
+<div class="navh">Pilotage</div>
+<a href="Main.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>Tableau de bord</a>
+<div class="navh">Exploitation</div>
+<a href="Planning.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>Planning &amp; dispatch</a>
+<a href="Commandes.dc.html" class="nv on" aria-current="page"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>Commandes</a>
+<a href="Clients.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2M10 6h4M10 10h4M10 14h4M10 18h4"/></svg>Clients</a>
+<div class="navh">Ressources</div>
+<a href="Flotte.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>Flotte</a>
+<a href="Chauffeurs.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Chauffeurs</a>
+<a href="Atelier.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Atelier &amp; entretien</a>
+<div class="navh">Finance &amp; conformité</div>
+<a href="Facturation.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8"/></svg>Facturation</a>
+<a href="Conformite.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>Conformité &amp; documents</a>
+<a href="Rapports.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16M18 17V9M13 17V5M8 17v-3"/></svg>Rapports</a>
+<div class="navh">Administration</div>
+<a href="Parametres.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Paramètres &amp; rôles</a>
+<a href="AppChauffeur.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>App chauffeur</a>
+<div class="me"><span class="av" style="background:#F4731C;color:#fff">GF</span><span style="display:flex;flex-direction:column;line-height:1.25"><strong style="font-size:13px">Direction GFK</strong><span style="font-size:11.5px;color:#8A96A6">Administrateur</span></span></div>
+</nav>
+<div class="main">
+<header class="tb">
+<div style="display:flex;flex-direction:column;gap:2px;margin-right:6px"><h1>Commandes de transport</h1><span class="sub">124 commandes en novembre · cliquez sur une ligne pour ouvrir le détail</span></div>
+<label class="search"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span class="sr">Rechercher une commande</span><input type="search" placeholder="N° de commande, client, référence…"></label>
+<label><span class="sr">Filtrer par client</span><select class="sel"><option>Tous les clients</option><option>Aliments Lemieux</option><option>Distribution Boréal</option><option>Papiers Laurentides</option></select></label>
+<label><span class="sr">Période</span><select class="sel"><option>Semaine 46</option><option>Novembre 2026</option><option>Personnalisée</option></select></label>
+<div style="margin-left:auto;display:flex;align-items:center;gap:10px">
+<button class="btn" type="button"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Exporter</button>
+<button class="btn p" type="button"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg>Nouvelle commande</button>
+</div>
+</header>
+<main class="content">
+
+<div class="grid" style="grid-template-columns:minmax(0,1fr) 340px;align-items:start">
+<div class="card" style="min-width:0">
+<div class="tabs" role="tablist" aria-label="Filtrer par statut">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="6"><button type="button" class="{{t.cls}}" onClick="{{t.pick}}">{{t.label}}<span class="cnt">{{t.n}}</span></button></sc-for>
+</div>
+<div class="tw"><table>
+<thead><tr><th>Commande</th><th>Client</th><th>Trajet</th><th>Chargement</th><th>Chauffeur · camion</th><th>Statut</th><th class="num">Prix</th></tr></thead>
+<tbody>
+<sc-for list="{{list}}" as="o" hint-placeholder-count="10">
+<tr class="{{o.cls}}" onClick="{{o.pick}}">
+<td><button type="button" class="lnk" onClick="{{o.pick}}">{{o.id}}</button><div class="sub">{{o.ref}}</div></td>
+<td style="font-weight:500">{{o.client}}</td>
+<td>{{o.from}} → {{o.to}}<div class="sub">{{o.km}} km · {{o.type}}</div></td>
+<td>{{o.loadDay}}<div class="sub">{{o.loadTime}}</div></td>
+<td>{{o.who}}<div class="sub">{{o.truckLabel}}</div></td>
+<td><span class="{{o.badge}}">{{o.status}}</span></td>
+<td class="num" style="font-weight:600">{{o.price}}</td>
+</tr>
+</sc-for>
+</tbody></table></div>
+<div class="sub" style="margin-top:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px"><span>{{count}} commandes affichées · page 1 sur 11</span><span style="display:flex;gap:6px"><button class="btn sm" type="button">Précédent</button><button class="btn sm" type="button">Suivant</button></span></div>
+</div>
+
+<div class="card" style="min-width:0">
+<div class="ch" style="margin-bottom:10px"><div><h2 style="font-size:17px">{{cur.id}}</h2><span class="sub">{{cur.client}} · réf. {{cur.ref}}</span></div><span class="{{cur.badge}}">{{cur.status}}</span></div>
+<sc-if value="{{cur.hasFlag}}" hint-placeholder-val="{{true}}"><div style="margin-bottom:10px"><span class="{{cur.flagCls}}">{{cur.flag}}</span></div></sc-if>
+<div style="background:#F8FAFC;border:1px solid #E3E8EF;border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:8px;font-size:13px">
+<div style="display:flex;gap:10px;align-items:flex-start"><span class="av" style="width:24px;height:24px;flex-basis:24px;font-size:10px;background:#1F2733;color:#fff">A</span><div><strong>{{cur.from}}</strong><div class="sub">Chargement · {{cur.load}}</div></div></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><span class="av" style="width:24px;height:24px;flex-basis:24px;font-size:10px;background:#C2410C;color:#fff">B</span><div><strong>{{cur.to}}</strong><div class="sub">Livraison · {{cur.deliv}}</div></div></div>
+<div class="sub" style="padding-top:6px;border-top:1px solid #E3E8EF">{{cur.km}} km · {{cur.dur}} de route estimées</div>
+</div>
+<div class="sec">Marchandise</div>
+<dl class="kv"><dt>Type</dt><dd>{{cur.type}}</dd><dt>Chargement</dt><dd>{{cur.cargo}}</dd><dt>Équipement</dt><dd>{{cur.equip}}</dd></dl>
+<div class="sec">Affectation</div>
+<sc-if value="{{cur.assigned}}" hint-placeholder-val="{{true}}">
+<div style="display:flex;align-items:center;gap:10px"><span class="av">{{cur.ini}}</span><div><strong style="font-size:13px">{{cur.who}}</strong><div class="sub">{{cur.truckLabel}}</div></div><a class="btn sm" href="Planning.dc.html" style="margin-left:auto">Planning</a></div>
+</sc-if>
+<sc-if value="{{cur.unassigned}}" hint-placeholder-val="{{false}}">
+<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><span class="sub">Aucun camion assigné.</span><a class="btn sm p" href="Planning.dc.html">Assigner au planning</a></div>
+</sc-if>
+<div class="sec">Rentabilité</div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+<div style="background:#F8FAFC;border-radius:8px;padding:10px"><div class="sub">Prix</div><div style="font-weight:700;font-size:15px">{{cur.price}}</div></div>
+<div style="background:#F8FAFC;border-radius:8px;padding:10px"><div class="sub">Coûts estimés</div><div style="font-weight:700;font-size:15px">{{cur.cost}}</div></div>
+<div style="background:#F8FAFC;border-radius:8px;padding:10px"><div class="sub">Marge</div><div style="font-weight:700;font-size:15px;color:#166534">{{cur.margin}}</div></div>
+</div>
+<div class="sec">Suivi</div>
+<div>
+<sc-for list="{{cur.steps}}" as="s" hint-placeholder-count="8"><div class="{{s.cls}}"><span class="d"></span><div><div class="l">{{s.label}}</div><div class="t">{{s.time}}</div></div></div></sc-for>
+</div>
+<div class="sec">Documents</div>
+<sc-for list="{{cur.docs}}" as="d" hint-placeholder-count="4"><div class="doc"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px;color:#5B6675"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg><span style="flex:1">{{d.name}}</span><span class="{{d.cls}}">{{d.state}}</span></div></sc-for>
+<div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap"><button class="btn sm" type="button">Modifier</button><button class="btn sm" type="button">Dupliquer</button><button class="btn sm" type="button" style="color:#B91C1C">Annuler la commande</button></div>
+</div>
+</div>
+
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sel: 'TR-26-1187', tab: 'all' };
+  }
+  renderVals() {
+    const self = this;
+    const badges = { todo: 'badge b-orange', plan: 'badge b-blue', run: 'badge b-amber', done: 'badge b-green', bill: 'badge b-gray' };
+    const labels = { todo: 'À planifier', plan: 'Planifiée', run: 'En cours', done: 'Livrée', bill: 'À facturer' };
+    const ranks = { todo: 1, plan: 2, run: 5, done: 6, bill: 7 };
+    const orders = [
+      { id: 'TR-26-1204', ref: 'PO-55120', client: 'Distribution Boréal', from: 'Québec', to: 'Sherbrooke', km: 240, dur: '2 h 45', loadDay: 'ven. 13 nov.', loadTime: '06 h 30', deliv: 'ven. 13 nov., 11 h 00', truck: '', driver: '', cat: 'todo', price: '1 380 $', cost: '910 $', margin: '34 %', type: 'Sec', cargo: '22 palettes · 11,4 t', equip: 'Fourgon 53 pi', flag: 'Urgent · fenêtre de livraison stricte', flagCls: 'badge b-red', customs: false, created: '11 nov., 09 h 15 · L. Fortin' },
+      { id: 'TR-26-1201', ref: 'PO-77402', client: 'Emballages Carrière', from: 'Montréal', to: 'Toronto', km: 540, dur: '6 h 10', loadDay: 'ven. 13 nov.', loadTime: '07 h 00', deliv: 'ven. 13 nov., 15 h 00', truck: '', driver: '', cat: 'todo', price: '1 650 $', cost: '1 180 $', margin: '28 %', type: 'Sec', cargo: '18 palettes · 9,8 t', equip: 'Fourgon 53 pi', flag: '', flagCls: '', customs: false, created: '10 nov., 15 h 40 · L. Fortin' },
+      { id: 'TR-26-1202', ref: 'LEM-3391', client: 'Aliments Lemieux', from: 'Laval', to: 'Québec', km: 255, dur: '2 h 50', loadDay: 'sam. 14 nov.', loadTime: '05 h 00', deliv: 'sam. 14 nov., 09 h 30', truck: '', driver: '', cat: 'todo', price: '1 120 $', cost: '760 $', margin: '32 %', type: 'Réfrigéré −18 °C', cargo: '26 palettes · 14,2 t', equip: 'Réfrigéré 53 pi', flag: 'Chaîne du froid · relevé de température requis', flagCls: 'badge b-blue', customs: false, created: '11 nov., 11 h 02 · portail client' },
+      { id: 'TR-26-1198', ref: 'PL-20931', client: 'Papiers Laurentides', from: 'Québec', to: 'Trois-Rivières', km: 130, dur: '1 h 30', loadDay: 'ven. 13 nov.', loadTime: '08 h 00', deliv: 'ven. 13 nov., 10 h 30', truck: 'T-108', driver: 'Julie Gagnon', ini: 'JG', cat: 'plan', price: '640 $', cost: '410 $', margin: '36 %', type: 'Sec', cargo: '14 palettes · 8,2 t', equip: 'Fourgon 53 pi', flag: '', flagCls: '', customs: false, created: '9 nov., 10 h 20 · L. Fortin', planned: '10 nov., 08 h 05 · T-108' },
+      { id: 'TR-26-1199', ref: 'QNE-1180', client: 'Quincaillerie Nord-Est', from: 'Ottawa', to: 'Montréal', km: 200, dur: '2 h 15', loadDay: 'ven. 13 nov.', loadTime: '09 h 00', deliv: 'ven. 13 nov., 13 h 00', truck: 'T-131', driver: 'Sébastien Roy', ini: 'SR', cat: 'plan', price: '890 $', cost: '590 $', margin: '34 %', type: 'Sec', cargo: '20 palettes · 10,1 t', equip: 'Fourgon 48 pi', flag: '', flagCls: '', customs: false, created: '9 nov., 14 h 48 · L. Fortin', planned: '10 nov., 08 h 10 · T-131' },
+      { id: 'TR-26-1184', ref: 'LEM-3376', client: 'Aliments Lemieux', from: 'Laval', to: 'Toronto', km: 540, dur: '6 h 10', loadDay: 'jeu. 12 nov.', loadTime: '05 h 00', deliv: 'jeu. 12 nov., 14 h 20', truck: 'T-112', driver: 'Martin Tremblay', ini: 'MT', cat: 'run', price: '1 720 $', cost: '1 190 $', margin: '31 %', type: 'Réfrigéré 2 °C', cargo: '24 palettes · 13,1 t', equip: 'Réfrigéré 53 pi', flag: '', flagCls: '', customs: false, created: '6 nov., 16 h 30 · portail client', planned: '9 nov., 09 h 00 · T-112', pretrip: '12 nov., 04 h 38 · conforme', loaded: '12 nov., 05 h 35 · Laval, quai 2', enroute: '12 nov., 05 h 50 · ETA 14 h 20' },
+      { id: 'TR-26-1187', ref: 'PL-20912', client: 'Papiers Laurentides', from: 'Trois-Rivières', to: 'Boston (MA)', km: 560, dur: '7 h 30', loadDay: 'jeu. 12 nov.', loadTime: '07 h 00', deliv: 'jeu. 12 nov., 18 h 45', truck: 'T-121', driver: 'Karim Benali', ini: 'KB', cat: 'run', price: '2 380 $', cost: '1 610 $', margin: '32 %', type: 'Sec · export', cargo: '20 palettes · 17,3 t', equip: 'Fourgon 53 pi', flag: 'Transfrontalier · PAPS transmis · heures de service à 94 %', flagCls: 'badge b-amber', customs: true, created: '10 nov., 14 h 05 · L. Fortin', planned: '10 nov., 16 h 20 · T-121', pretrip: '12 nov., 06 h 12 · conforme', loaded: '12 nov., 07 h 40 · Trois-Rivières, quai 4', enroute: '12 nov., 08 h 02 · douane Stanstead prévue 13 h 30' },
+      { id: 'TR-26-1195', ref: 'MB-4471', client: 'Métallurgie Beauce', from: 'Saint-Georges', to: 'Mississauga', km: 790, dur: '9 h 00', loadDay: 'jeu. 12 nov.', loadTime: '06 h 00', deliv: 'jeu. 12 nov., 19 h 10', truck: 'T-126', driver: 'Patrick Lavoie', ini: 'PL', cat: 'run', price: '2 140 $', cost: '1 520 $', margin: '29 %', type: 'Fardier', cargo: 'Poutrelles · 16,8 t', equip: 'Fardier 48 pi · sangles', flag: '', flagCls: '', customs: false, created: '5 nov., 11 h 10 · L. Fortin', planned: '9 nov., 09 h 05 · T-126', pretrip: '12 nov., 05 h 20 · conforme', loaded: '12 nov., 06 h 50 · Saint-Georges', enroute: '12 nov., 07 h 05 · ETA 19 h 10' },
+      { id: 'TR-26-1190', ref: 'PO-55098', client: 'Distribution Boréal', from: 'Montréal', to: 'Québec', km: 255, dur: '2 h 50', loadDay: 'jeu. 12 nov.', loadTime: '08 h 00', deliv: 'jeu. 12 nov., 11 h 42', truck: 'T-108', driver: 'Julie Gagnon', ini: 'JG', cat: 'done', price: '1 050 $', cost: '700 $', margin: '33 %', type: 'Sec', cargo: '22 palettes · 12,0 t', equip: 'Fourgon 53 pi', flag: '', flagCls: '', customs: false, created: '9 nov., 10 h 22 · L. Fortin', planned: '9 nov., 15 h 00 · T-108', pretrip: '12 nov., 07 h 15 · conforme', loaded: '12 nov., 08 h 30 · Montréal', enroute: '12 nov., 08 h 45', delivered: '12 nov., 11 h 42 · Québec, entrepôt 3' },
+      { id: 'TR-26-1181', ref: 'GR-2208', client: 'Groupe Rivière', from: 'Drummondville', to: 'Montréal', km: 110, dur: '1 h 20', loadDay: 'mer. 11 nov.', loadTime: '13 h 00', deliv: 'mer. 11 nov., 15 h 10', truck: 'T-115', driver: 'Nadia Côté', ini: 'NC', cat: 'done', price: '520 $', cost: '350 $', margin: '33 %', type: 'Sec', cargo: '10 palettes · 4,6 t', equip: 'Fourgon 48 pi', flag: '', flagCls: '', customs: false, created: '9 nov., 08 h 40 · L. Fortin', planned: '9 nov., 09 h 30 · T-115', pretrip: '11 nov., 12 h 20 · conforme', loaded: '11 nov., 13 h 25', enroute: '11 nov., 13 h 40', delivered: '11 nov., 15 h 10 · Montréal' },
+      { id: 'TR-26-1176', ref: 'BMR-910', client: 'Brasserie Mont-Royal', from: 'Montréal', to: 'Halifax (NS)', km: 1250, dur: '2 jours', loadDay: 'lun. 9 nov.', loadTime: '06 h 00', deliv: 'mar. 10 nov., 16 h 30', truck: 'T-126', driver: 'Patrick Lavoie', ini: 'PL', cat: 'bill', price: '3 450 $', cost: '2 480 $', margin: '28 %', type: 'Sec', cargo: '26 palettes · 19,5 t', equip: 'Fourgon 53 pi', flag: '', flagCls: '', customs: false, created: '3 nov., 09 h 00 · L. Fortin', planned: '4 nov., 10 h 15 · T-126', pretrip: '9 nov., 05 h 30 · conforme', loaded: '9 nov., 06 h 40', enroute: '9 nov., 06 h 55', delivered: '10 nov., 16 h 30 · Halifax', pod: '10 nov., 16 h 36 · signé M. Doucet' },
+      { id: 'TR-26-1172', ref: 'FDC-512', client: 'Fromagerie des Cantons', from: 'Sherbrooke', to: 'Montréal', km: 155, dur: '1 h 45', loadDay: 'lun. 9 nov.', loadTime: '07 h 00', deliv: 'lun. 9 nov., 09 h 20', truck: 'T-115', driver: 'Nadia Côté', ini: 'NC', cat: 'bill', price: '610 $', cost: '400 $', margin: '34 %', type: 'Réfrigéré 4 °C', cargo: '12 palettes · 6,8 t', equip: 'Réfrigéré 48 pi', flag: '', flagCls: '', customs: false, created: '5 nov., 13 h 10 · portail client', planned: '6 nov., 08 h 00 · T-115', pretrip: '9 nov., 06 h 20 · conforme', loaded: '9 nov., 07 h 15', enroute: '9 nov., 07 h 30', delivered: '9 nov., 09 h 20 · Montréal', pod: '9 nov., 09 h 24 · signé A. Tran' }
+    ];
+    const tabDefs = [['all', 'Toutes'], ['todo', 'À planifier'], ['plan', 'Planifiées'], ['run', 'En cours'], ['done', 'Livrées'], ['bill', 'À facturer']];
+    const tab = this.state.tab;
+    const tabs = tabDefs.map(function (t) {
+      const n = t[0] === 'all' ? orders.length : orders.filter(function (o) { return o.cat === t[0]; }).length;
+      return { id: t[0], label: t[1], n: n, cls: t[0] === tab ? 'tab on' : 'tab', pick: function () { self.setState({ tab: t[0] }); } };
+    });
+    const decorate = function (o) {
+      const rank = ranks[o.cat];
+      const base = [['Commande créée', o.created], ['Planifiée', o.planned], ['Ronde de sécurité', o.pretrip], ['Chargement', o.loaded], ['En route', o.enroute], ['Livraison', o.delivered], ['Preuve de livraison (POD)', o.pod], ['Facturée', o.invoiced]];
+      const steps = base.map(function (s, i) {
+        return { label: s[0], time: s[1] || (i === rank ? 'En attente' : '—'), cls: i < rank ? 'st done' : (i === rank ? 'st now' : 'st') };
+      });
+      const docs = [{ name: 'Connaissement (BOL)', state: rank >= 3 ? 'Signé' : 'Généré', cls: rank >= 3 ? 'badge b-green' : 'badge b-gray' }];
+      if (o.customs) docs.push({ name: 'Déclaration douanière (PAPS / ACE)', state: 'Transmise', cls: 'badge b-green' });
+      docs.push({ name: 'Preuve de livraison (POD)', state: rank >= 7 ? 'Signée' : 'En attente', cls: rank >= 7 ? 'badge b-green' : 'badge b-gray' });
+      docs.push({ name: 'Facture client', state: rank >= 8 ? 'Émise' : 'Non émise', cls: rank >= 8 ? 'badge b-green' : 'badge b-gray' });
+      const assigned = !!o.truck;
+      return Object.assign({}, o, {
+        status: labels[o.cat], badge: badges[o.cat],
+        who: assigned ? o.driver : 'Non assigné',
+        truckLabel: assigned ? o.truck : 'À assigner',
+        load: o.loadDay + ', ' + o.loadTime,
+        hasFlag: !!o.flag, assigned: assigned, unassigned: !assigned,
+        steps: steps, docs: docs,
+        cls: o.id === self.state.sel ? 'row sel' : 'row',
+        pick: function () { self.setState({ sel: o.id }); }
+      });
+    };
+    const all = orders.map(decorate);
+    const list = all.filter(function (o) { return tab === 'all' || o.cat === tab; });
+    let cur = all.find(function (o) { return o.id === self.state.sel; });
+    if (!cur) cur = all[0];
+    return { tabs: tabs, list: list, cur: cur, count: list.length };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GFK · Planning et dispatch</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F3F5F8;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#1F2733;-webkit-font-smoothing:antialiased;font-size:14px}
+a{color:#1F2733;text-decoration:none}a:hover{color:#C2410C}
+h1,h2,h3,p,ul{margin:0}ul{padding:0;list-style:none}
+.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.sb{width:248px;flex:0 0 248px;background:#161C26;color:#C9D1DC;display:flex;flex-direction:column;padding:18px 14px 16px;gap:2px}
+.logo{display:flex;flex-direction:column;gap:5px;padding:6px 10px 16px;color:#fff}
+.logo:hover{color:#fff}
+.wm{font-family:"Exo 2",Inter,sans-serif;font-style:italic;font-weight:700;font-size:11.5px;color:#AEB8C6;letter-spacing:.01em}
+.navh{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:#7F8B9B;padding:14px 12px 6px;font-weight:600}
+.nv{display:flex;align-items:center;gap:12px;padding:0 12px;min-height:40px;border-radius:8px;color:#C9D1DC;font-size:13.5px;font-weight:500}
+.nv:hover{background:#222B38;color:#fff}
+.nv.on{background:#232D3B;color:#fff}
+.nv.on .i{color:#F4731C}
+.me{margin-top:auto;display:flex;align-items:center;gap:10px;padding:14px 8px 0;border-top:1px solid #2A3442;color:#fff;font-size:13px}
+.main{flex:999 1 560px;min-width:0;display:flex;flex-direction:column}
+.tb{min-height:64px;background:#fff;border-bottom:1px solid #E3E8EF;display:flex;align-items:center;gap:14px;padding:10px 28px;flex-wrap:wrap}
+.tb h1{font-size:18px;font-weight:700;letter-spacing:-.01em}
+.ib{position:relative;width:40px;height:40px;border:1px solid #D5DBE3;border-radius:8px;background:#fff;display:inline-flex;align-items:center;justify-content:center;color:#1F2733;cursor:pointer;padding:0}
+.ib .n{position:absolute;top:-7px;right:-7px;min-width:18px;height:18px;border-radius:9px;background:#B91C1C;color:#fff;font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 5px;border:2px solid #fff}
+.btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:8px;border:1px solid #D5DBE3;background:#fff;color:#1F2733;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;white-space:nowrap}
+.btn:hover{background:#F8FAFC;color:#1F2733}
+.btn.p{background:#C2410C;border-color:#C2410C;color:#fff}.btn.p:hover{background:#9A3412;color:#fff}
+.btn.sm{height:32px;padding:0 10px;font-size:12.5px}
+.btn.sm.on{background:#1F2733;border-color:#1F2733;color:#fff}
+.seg{display:inline-flex;border:1px solid #D5DBE3;border-radius:8px;overflow:hidden}
+.seg button{height:38px;padding:0 14px;border:0;background:#fff;font:inherit;font-size:13px;font-weight:600;color:#5B6675;cursor:pointer}
+.seg button.on{background:#1F2733;color:#fff}
+.sel{height:38px;border:1px solid #D5DBE3;border-radius:8px;padding:0 34px 0 12px;font:inherit;font-size:13px;font-weight:500;background:#fff;color:#1F2733;appearance:none;-webkit-appearance:none}
+.content{padding:24px 28px 28px;display:flex;flex-direction:column;gap:20px}
+.card{background:#fff;border:1px solid #E3E8EF;border-radius:12px;padding:20px}
+.card h2{font-size:14.5px;font-weight:700}
+.ch{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.muted{color:#5B6675}
+.sub{font-size:12.5px;color:#5B6675}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap;line-height:1.4}
+.b-green{background:#E6F4EA;color:#166534}.b-blue{background:#E8F0FE;color:#1D4ED8}.b-amber{background:#FEF3C7;color:#92400E}.b-red{background:#FEE2E2;color:#B91C1C}.b-gray{background:#EEF1F5;color:#475467}.b-orange{background:#FFEDD5;color:#C2410C}
+.av{width:30px;height:30px;border-radius:50%;background:#E3E8EF;color:#1F2733;display:inline-flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;flex:0 0 30px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.grid{display:grid;gap:20px}
+.kpi{display:flex;flex-direction:column;gap:6px}
+.kpi .l{font-size:12.5px;color:#5B6675;font-weight:500}
+.kpi .v{font-size:24px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.mc{border:1px solid #E3E8EF;border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:6px;background:#fff;cursor:grab}
+.mc:hover{border-color:#C9D1DC;box-shadow:0 2px 8px rgba(31,39,51,.08)}
+.mc .t{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.mc .r{font-weight:600;font-size:13px}
+.board{display:grid;grid-template-columns:176px repeat(7,minmax(0,1fr));border:1px solid #E3E8EF;border-radius:10px;overflow:hidden;background:#fff}
+.hd{padding:10px 8px;font-size:11.5px;font-weight:600;color:#5B6675;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid #E3E8EF;background:#F8FAFC;border-left:1px solid #EEF1F5;text-align:center}
+.hd:first-child{border-left:0;text-align:left;padding-left:12px}
+.hd.td{color:#C2410C;background:#FFF7ED}
+.rn{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid #EEF1F5;min-height:64px}
+.rn strong{font-size:13px;display:block}
+.cell{padding:4px;border-left:1px solid #EEF1F5;border-bottom:1px solid #EEF1F5;min-height:64px}
+.cell.td{background:#FFFBF5}
+.blk{border-radius:6px;padding:6px 8px;font-size:11.5px;line-height:1.3;display:flex;flex-direction:column;gap:2px;height:100%;min-height:54px;justify-content:center;min-width:0}
+.blk b{font-weight:600;color:#1F2733;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.blk span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500}
+.done{background:#E6F4EA}.done span{color:#166534}
+.run{background:#FFEDD5}.run span{color:#C2410C}
+.plan{background:#E8F0FE}.plan span{color:#1D4ED8}
+.shop{background:#EEF1F5}.shop span{color:#475467}
+.blocked{background:#FEE2E2}.blocked span{color:#B91C1C}
+.off{background:#FAFBFC;border:1px solid #E3E8EF;color:#5B6675;align-items:center;text-align:center}
+.lg{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#5B6675;align-items:center}
+.lg i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+@media (max-width:900px){.grid{grid-template-columns:repeat(1,minmax(0,1fr)) !important}.sb{width:100%;flex-basis:100%}}
+</style>
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+<div style="display:flex;flex-wrap:wrap;min-height:100vh">
+<nav class="sb" aria-label="Navigation principale">
+<a href="tableau-de-bord.html" class="logo" aria-label="GFK Transports et logistique, accueil">
+<svg viewBox="0 0 340 100" width="96" height="28" aria-hidden="true"><g transform="translate(22 0) skewX(-12)" fill="none" stroke="#FFFFFF" stroke-width="22"><path d="M89 11H11V89h67V52H52"/><path d="M123 100V11h74M123 53h58"/><path d="M235 0v100M312 0L238 58M258 42l52 58"/></g></svg>
+<span class="wm">Transports &amp; logistics</span>
+</a>
+<button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="navh">Pilotage</div>
+<a href="tableau-de-bord.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>Tableau de bord</a>
+<div class="navh">Exploitation</div>
+<a href="planning.html" class="nv on" aria-current="page"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>Planning &amp; dispatch</a>
+<a href="commandes.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>Commandes</a>
+<a href="clients.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2M10 6h4M10 10h4M10 14h4M10 18h4"/></svg>Clients</a>
+<div class="navh">Ressources</div>
+<a href="flotte.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>Flotte</a>
+<a href="chauffeurs.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Chauffeurs</a>
+<a href="atelier.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Atelier &amp; entretien</a>
+<div class="navh">Finance &amp; conformité</div>
+<a href="facturation.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8"/></svg>Facturation</a>
+<a href="conformite.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>Conformité &amp; documents</a>
+<a href="rapports.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16M18 17V9M13 17V5M8 17v-3"/></svg>Rapports</a>
+<div class="navh">Administration</div>
+<a href="parametres.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Paramètres &amp; rôles</a>
+<a href="app-chauffeur.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>App chauffeur</a>
+<div class="me"><span class="av" style="background:#F4731C;color:#fff">GF</span><span style="display:flex;flex-direction:column;line-height:1.25"><strong style="font-size:13px">Direction GFK</strong><span style="font-size:11.5px;color:#8A96A6">Administrateur</span></span></div>
+</nav>
+<div class="main">
+<header class="tb">
+<div style="display:flex;flex-direction:column;gap:2px;margin-right:6px"><h1>Planning &amp; dispatch</h1><span class="sub">Semaine 46 · du lundi 9 au dimanche 15 novembre 2026</span></div>
+<div style="display:flex;align-items:center;gap:6px">
+<button class="ib" type="button" aria-label="Semaine précédente" style="width:38px;height:38px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+<button class="btn sm" type="button" style="height:38px">Aujourd'hui</button>
+<button class="ib" type="button" aria-label="Semaine suivante" style="width:38px;height:38px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+</div>
+<div class="seg" role="group" aria-label="Vue"><button type="button">Jour</button><button type="button" class="on">Semaine</button><button type="button">Mois</button></div>
+<label><span class="sr">Filtrer par véhicule</span><select class="sel"><option>Tous les camions (42)</option><option>Tracteurs</option><option>Porteurs</option></select></label>
+<div style="margin-left:auto;display:flex;align-items:center;gap:10px">
+<button class="ib" type="button" aria-label="Notifications, 6 non lues"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span class="n">6</span></button>
+<a class="btn p" href="commandes.html"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg>Nouvelle mission</a>
+</div>
+</header>
+<main class="content">
+
+<div class="grid" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+<div class="card kpi"><span class="l">Taux d'utilisation de la flotte</span><span class="v">83 %</span><span class="sub"><span class="badge b-green">+2 pts</span> vs semaine 45</span></div>
+<div class="card kpi"><span class="l">Missions planifiées cette semaine</span><span class="v">61</span><span class="sub">37 livrées · 6 en cours · 18 à venir</span></div>
+<div class="card kpi"><span class="l">Missions non assignées</span><span class="v" style="color:#C2410C">8</span><span class="sub">2 urgentes · chargement avant vendredi</span></div>
+<div class="card kpi"><span class="l">Conflits détectés</span><span class="v" style="color:#B91C1C">2</span><span class="sub">1 heures de service · 1 véhicule non conforme</span></div>
+</div>
+
+<div class="grid" style="grid-template-columns:284px minmax(0,1fr)">
+<div class="card" style="padding:16px;display:flex;flex-direction:column;gap:10px">
+<div class="ch" style="margin-bottom:2px"><h2>À planifier <span class="badge b-orange">8</span></h2><button class="btn sm" type="button">Trier</button></div>
+<div class="sub" style="margin-top:-6px">Glissez une mission sur un camion pour l'assigner.</div>
+<div class="mc"><div class="t"><strong style="font-size:12.5px">TR-26-1204</strong><span class="badge b-red">Urgent</span></div><div class="r">Québec → Sherbrooke</div><div class="sub">Distribution Boréal · ven. 13 nov., 06 h 30</div><div class="sub">22 palettes · 11,4 t · 1 380 $</div><div class="sub" style="color:#1D4ED8;font-weight:600">Suggestion : T-108 (J. Gagnon)</div></div>
+<div class="mc"><div class="t"><strong style="font-size:12.5px">TR-26-1201</strong><span class="badge b-gray">Standard</span></div><div class="r">Montréal → Toronto</div><div class="sub">Emballages Carrière · ven. 13 nov., 07 h</div><div class="sub">18 palettes · 9,8 t · 1 650 $</div><div class="sub" style="color:#1D4ED8;font-weight:600">Suggestion : T-112 (retour Toronto)</div></div>
+<div class="mc"><div class="t"><strong style="font-size:12.5px">TR-26-1202</strong><span class="badge b-blue">Réfrigéré</span></div><div class="r">Laval → Québec</div><div class="sub">Aliments Lemieux · sam. 14 nov., 05 h</div><div class="sub">26 palettes · 14,2 t · 1 120 $</div></div>
+<div class="mc"><div class="t"><strong style="font-size:12.5px">TR-26-1205</strong><span class="badge b-amber">Douane</span></div><div class="r">Drummondville → Plattsburgh</div><div class="sub">Groupe Rivière · lun. 16 nov., 08 h</div><div class="sub">12 palettes · 6,1 t · 980 $ · papiers ACE / PARS</div></div>
+<div class="mc"><div class="t"><strong style="font-size:12.5px">TR-26-1203</strong><span class="badge b-gray">Standard</span></div><div class="r">Trois-Rivières → Ottawa</div><div class="sub">Papiers Laurentides · lun. 16 nov., 09 h</div><div class="sub">20 palettes · 10,5 t · 1 240 $</div></div>
+<button class="btn sm" type="button" style="justify-content:center">Afficher les 3 autres</button>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+<div class="board" role="table" aria-label="Planning hebdomadaire par camion">
+<div class="hd">Camion · chauffeur</div><div class="hd">Lun 9</div><div class="hd">Mar 10</div><div class="hd">Mer 11</div><div class="hd td">Jeu 12</div><div class="hd">Ven 13</div><div class="hd">Sam 14</div><div class="hd">Dim 15</div>
+
+<div class="rn"><span class="av">MT</span><div><strong>T-112</strong><span class="sub">M. Tremblay</span></div></div>
+<div class="cell"><div class="blk done"><b>Aliments Lemieux</b><span>Laval → Québec · livré</span></div></div>
+<div class="cell"><div class="blk done"><b>Distribution Boréal</b><span>Québec → Montréal · livré</span></div></div>
+<div class="cell"><div class="blk off">Repos</div></div>
+<div class="cell td"><div class="blk run"><b>Aliments Lemieux</b><span>Laval → Toronto · en route</span></div></div>
+<div class="cell"><div class="blk plan"><b>Emballages Carrière</b><span>Toronto → Montréal · planifié</span></div></div>
+<div class="cell"></div>
+<div class="cell"></div>
+
+<div class="rn"><span class="av">JG</span><div><strong>T-108</strong><span class="sub">J. Gagnon</span></div></div>
+<div class="cell"><div class="blk done"><b>Papiers Laurentides</b><span>Trois-Rivières → Laval · livré</span></div></div>
+<div class="cell"><div class="blk done"><b>Meubles Dorval</b><span>Dorval → Québec · livré</span></div></div>
+<div class="cell"><div class="blk done"><b>Distribution Boréal</b><span>Québec → Montréal · livré</span></div></div>
+<div class="cell td"><div class="blk run"><b>Distribution Boréal</b><span>Montréal → Québec · livraison</span></div></div>
+<div class="cell"><div class="blk plan"><b>Papiers Laurentides</b><span>Québec → Trois-Rivières</span></div></div>
+<div class="cell"><div class="blk off">Repos</div></div>
+<div class="cell"></div>
+
+<div class="rn"><span class="av">KB</span><div><strong>T-121</strong><span class="sub">K. Benali</span></div></div>
+<div class="cell"><div class="blk off">Repos</div></div>
+<div class="cell" style="grid-column:span 2"><div class="blk done"><b>Métallurgie Beauce</b><span>Saint-Georges → Newark (NJ) · livré</span></div></div>
+<div class="cell td" style="grid-column:span 2"><div class="blk run"><b>Papiers Laurentides</b><span>Trois-Rivières → Boston · en route</span><span style="color:#B91C1C">Heures de service à 94 %</span></div></div>
+<div class="cell"></div>
+<div class="cell"></div>
+
+<div class="rn"><span class="av">SR</span><div><strong>T-131</strong><span class="sub">S. Roy</span></div></div>
+<div class="cell"><div class="blk done"><b>Quincaillerie Nord-Est</b><span>Montréal → Gatineau · livré</span></div></div>
+<div class="cell"><div class="blk done"><b>Brasserie Mont-Royal</b><span>Montréal → Ottawa · livré</span></div></div>
+<div class="cell"><div class="blk off">Repos</div></div>
+<div class="cell td"><div class="blk run"><b>Meubles Dorval</b><span>Dorval → Ottawa · chargement</span></div></div>
+<div class="cell"><div class="blk plan"><b>Quincaillerie Nord-Est</b><span>Ottawa → Montréal · planifié</span></div></div>
+<div class="cell"><div class="blk plan"><b>Brasserie Mont-Royal</b><span>Montréal → Laval · planifié</span></div></div>
+<div class="cell"></div>
+
+<div class="rn"><span class="av">NC</span><div><strong>T-115</strong><span class="sub">N. Côté</span></div></div>
+<div class="cell"><div class="blk done"><b>Fromagerie des Cantons</b><span>Sherbrooke → Montréal · livré</span></div></div>
+<div class="cell"><div class="blk done"><b>Fromagerie des Cantons</b><span>Montréal → Sherbrooke · livré</span></div></div>
+<div class="cell"><div class="blk done"><b>Groupe Rivière</b><span>Drummondville → Montréal · livré</span></div></div>
+<div class="cell td"><div class="blk run"><b>Fromagerie des Cantons</b><span>Sherbrooke → Montréal · en route</span></div></div>
+<div class="cell"><div class="blk plan"><b>Groupe Rivière</b><span>Montréal → Drummondville</span></div></div>
+<div class="cell"><div class="blk off">Repos</div></div>
+<div class="cell"></div>
+
+<div class="rn"><span class="av">PL</span><div><strong>T-126</strong><span class="sub">P. Lavoie</span></div></div>
+<div class="cell" style="grid-column:span 2"><div class="blk done"><b>Brasserie Mont-Royal</b><span>Montréal → Halifax · livré</span></div></div>
+<div class="cell"><div class="blk off">Repos</div></div>
+<div class="cell td" style="grid-column:span 2"><div class="blk run"><b>Métallurgie Beauce</b><span>Saint-Georges → Mississauga · en route</span></div></div>
+<div class="cell"><div class="blk off">Repos</div></div>
+<div class="cell"></div>
+
+<div class="rn"><span class="av">EB</span><div><strong>T-104</strong><span class="sub">É. Bouchard</span></div></div>
+<div class="cell"><div class="blk done"><b>Emballages Carrière</b><span>Montréal → Trois-Rivières · livré</span></div></div>
+<div class="cell" style="grid-column:span 2"><div class="blk done"><b>Fromagerie des Cantons</b><span>Sherbrooke → Rimouski · livré</span></div></div>
+<div class="cell td"><div class="blk plan"><b>Quincaillerie Nord-Est</b><span>Montréal → Rimouski · 13 h</span><span style="color:#92400E">Pneus avant à vérifier</span></div></div>
+<div class="cell"><div class="blk plan"><b>Retour à vide</b><span>Rimouski → Montréal</span></div></div>
+<div class="cell"></div>
+<div class="cell"></div>
+
+<div class="rn"><span class="av" style="background:#FEE2E2;color:#B91C1C">—</span><div><strong>T-118</strong><span class="sub">Non assigné</span></div></div>
+<div class="cell" style="grid-column:span 7"><div class="blk blocked"><b>Véhicule bloqué · vérification mécanique SAAQ expirée</b><span>Retour atelier prévu vendredi 13 nov., 16 h · aucune assignation possible</span></div></div>
+
+<div class="rn"><span class="av">MD</span><div><strong>T-127</strong><span class="sub">M. Diallo</span></div></div>
+<div class="cell"><div class="blk done"><b>Aliments Lemieux</b><span>Laval → Ottawa · livré</span></div></div>
+<div class="cell"><div class="blk done"><b>Aliments Lemieux</b><span>Ottawa → Laval · livré</span></div></div>
+<div class="cell"><div class="blk done"><b>Groupe Rivière</b><span>Drummondville → Québec · livré</span></div></div>
+<div class="cell td"><div class="blk shop"><b>Atelier · PEP 25 000 km</b><span>Marc L. · fin prévue 15 h</span></div></div>
+<div class="cell"><div class="blk plan"><b>Aliments Lemieux</b><span>Laval → Québec · planifié</span></div></div>
+<div class="cell"><div class="blk off">Repos</div></div>
+<div class="cell"></div>
+
+<div class="rn"><span class="av">SP</span><div><strong>T-133</strong><span class="sub">S. Pelletier</span></div></div>
+<div class="cell" style="grid-column:span 5"><div class="blk shop"><b>Atelier · remplacement embrayage</b><span>En attente de pièces · fournisseur confirme livraison jeudi · chauffeuse réaffectée sur T-140</span></div></div>
+<div class="cell"></div>
+<div class="cell"></div>
+</div>
+<div class="lg"><span><i style="background:#E6F4EA;border:1px solid #BBE2C6"></i>Livré</span><span><i style="background:#FFEDD5;border:1px solid #F8C9A5"></i>En cours</span><span><i style="background:#E8F0FE;border:1px solid #BFD3FA"></i>Planifié</span><span><i style="background:#EEF1F5;border:1px solid #D5DBE3"></i>Atelier</span><span><i style="background:#FEE2E2;border:1px solid #F5B5B5"></i>Bloqué</span><span><i style="background:#FAFBFC;border:1px solid #D5DBE3"></i>Repos</span><span style="margin-left:auto">10 camions affichés sur 42 · <a href="flotte.html" style="color:#C2410C;font-weight:600">voir toute la flotte</a></span></div>
+</div>
+</div>
+
+</main>
+</div>
+</div>
+<script src="demo.js"></script>
+</body>
+</html>

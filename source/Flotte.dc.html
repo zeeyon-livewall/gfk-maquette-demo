@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>GFK · Flotte</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F3F5F8;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#1F2733;-webkit-font-smoothing:antialiased;font-size:14px}
+a{color:#1F2733;text-decoration:none}a:hover{color:#C2410C}
+h1,h2,h3,p,ul{margin:0}ul{padding:0;list-style:none}
+.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.sb{width:248px;flex:0 0 248px;background:#161C26;color:#C9D1DC;display:flex;flex-direction:column;padding:18px 14px 16px;gap:2px}
+.logo{display:flex;flex-direction:column;gap:5px;padding:6px 10px 16px;color:#fff}
+.logo:hover{color:#fff}
+.wm{font-family:"Exo 2",Inter,sans-serif;font-style:italic;font-weight:700;font-size:11.5px;color:#AEB8C6;letter-spacing:.01em}
+.navh{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:#7F8B9B;padding:14px 12px 6px;font-weight:600}
+.nv{display:flex;align-items:center;gap:12px;padding:0 12px;min-height:40px;border-radius:8px;color:#C9D1DC;font-size:13.5px;font-weight:500}
+.nv:hover{background:#222B38;color:#fff}
+.nv.on{background:#232D3B;color:#fff}
+.nv.on .i{color:#F4731C}
+.me{margin-top:auto;display:flex;align-items:center;gap:10px;padding:14px 8px 0;border-top:1px solid #2A3442;color:#fff;font-size:13px}
+.main{flex:999 1 560px;min-width:0;display:flex;flex-direction:column}
+.tb{min-height:64px;background:#fff;border-bottom:1px solid #E3E8EF;display:flex;align-items:center;gap:14px;padding:10px 28px;flex-wrap:wrap}
+.tb h1{font-size:18px;font-weight:700;letter-spacing:-.01em}
+.search{display:flex;align-items:center;gap:8px;flex:1 1 200px;max-width:380px;height:40px;border:1px solid #D5DBE3;border-radius:8px;padding:0 12px;background:#F8FAFC;color:#5B6675;position:relative}
+.search input{border:0;background:transparent;font:inherit;font-size:13.5px;flex:1;min-width:0;color:#1F2733;outline:none}
+.ib{position:relative;width:40px;height:40px;border:1px solid #D5DBE3;border-radius:8px;background:#fff;display:inline-flex;align-items:center;justify-content:center;color:#1F2733;cursor:pointer;padding:0}
+.ib .n{position:absolute;top:-7px;right:-7px;min-width:18px;height:18px;border-radius:9px;background:#B91C1C;color:#fff;font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 5px;border:2px solid #fff}
+.btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:8px;border:1px solid #D5DBE3;background:#fff;color:#1F2733;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;white-space:nowrap}
+.btn:hover{background:#F8FAFC;color:#1F2733}
+.btn.p{background:#C2410C;border-color:#C2410C;color:#fff}.btn.p:hover{background:#9A3412;color:#fff}
+.btn.sm{height:32px;padding:0 10px;font-size:12.5px}
+.chip{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:999px;border:1px solid #D5DBE3;background:#fff;font:inherit;font-size:12.5px;font-weight:600;color:#5B6675;cursor:pointer}
+.chip.on{background:#1F2733;border-color:#1F2733;color:#fff}
+.content{padding:24px 28px 28px;display:flex;flex-direction:column;gap:20px}
+.card{background:#fff;border:1px solid #E3E8EF;border-radius:12px;padding:20px}
+.card h2{font-size:14.5px;font-weight:700}
+.ch{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.muted{color:#5B6675}
+.sub{font-size:12.5px;color:#5B6675}
+.kpi{display:flex;flex-direction:column;gap:6px}
+.kpi .l{font-size:12.5px;color:#5B6675;font-weight:500}
+.kpi .v{font-size:24px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap;line-height:1.4}
+.b-green{background:#E6F4EA;color:#166534}.b-blue{background:#E8F0FE;color:#1D4ED8}.b-amber{background:#FEF3C7;color:#92400E}.b-red{background:#FEE2E2;color:#B91C1C}.b-gray{background:#EEF1F5;color:#475467}.b-orange{background:#FFEDD5;color:#C2410C}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#5B6675;font-weight:600;padding:9px 8px;border-bottom:1px solid #E3E8EF;background:#F8FAFC;white-space:nowrap}
+td{padding:9px 8px;border-bottom:1px solid #EEF1F5;vertical-align:middle}
+tr.sel td{background:#FFF7ED}
+.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:#E3E8EF;overflow:hidden;flex:1;display:block;min-width:60px}
+.tw strong{white-space:nowrap}
+.bar .f{display:block;height:100%;border-radius:3px;background:#2a78d6}
+.av{width:30px;height:30px;border-radius:50%;background:#E3E8EF;color:#1F2733;display:inline-flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;flex:0 0 30px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.grid{display:grid;gap:20px}
+.kv{display:grid;grid-template-columns:120px minmax(0,1fr);gap:7px 10px;font-size:13px}
+.kv dt{color:#5B6675;margin:0}.kv dd{margin:0;font-weight:500}
+.doc{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #EEF1F5;font-size:13px}
+.doc:last-child{border-bottom:0}
+.sec{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:#5B6675;font-weight:700;margin:16px 0 8px}
+.lnk{border:0;background:none;padding:0;white-space:nowrap;font:inherit;font-weight:700;color:#1F2733;cursor:pointer;text-align:left}
+.lnk:hover{color:#C2410C}
+@media (max-width:900px){.grid{grid-template-columns:repeat(1,minmax(0,1fr)) !important}.sb{width:100%;flex-basis:100%}}
+</style>
+</helmet>
+<div style="display:flex;flex-wrap:wrap;min-height:100vh">
+<nav class="sb" aria-label="Navigation principale">
+<a href="Main.dc.html" class="logo" aria-label="GFK Transports et logistique, accueil">
+<svg viewBox="0 0 340 100" width="96" height="28" aria-hidden="true"><g transform="translate(22 0) skewX(-12)" fill="none" stroke="#FFFFFF" stroke-width="22"><path d="M89 11H11V89h67V52H52"/><path d="M123 100V11h74M123 53h58"/><path d="M235 0v100M312 0L238 58M258 42l52 58"/></g></svg>
+<span class="wm">Transports &amp; logistics</span>
+</a>
+<div class="navh">Pilotage</div>
+<a href="Main.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>Tableau de bord</a>
+<div class="navh">Exploitation</div>
+<a href="Planning.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>Planning &amp; dispatch</a>
+<a href="Commandes.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>Commandes</a>
+<a href="Clients.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2M10 6h4M10 10h4M10 14h4M10 18h4"/></svg>Clients</a>
+<div class="navh">Ressources</div>
+<a href="Flotte.dc.html" class="nv on" aria-current="page"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>Flotte</a>
+<a href="Chauffeurs.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Chauffeurs</a>
+<a href="Atelier.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Atelier &amp; entretien</a>
+<div class="navh">Finance &amp; conformité</div>
+<a href="Facturation.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8"/></svg>Facturation</a>
+<a href="Conformite.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>Conformité &amp; documents</a>
+<a href="Rapports.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16M18 17V9M13 17V5M8 17v-3"/></svg>Rapports</a>
+<div class="navh">Administration</div>
+<a href="Parametres.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Paramètres &amp; rôles</a>
+<a href="AppChauffeur.dc.html" class="nv"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>App chauffeur</a>
+<div class="me"><span class="av" style="background:#F4731C;color:#fff">GF</span><span style="display:flex;flex-direction:column;line-height:1.25"><strong style="font-size:13px">Direction GFK</strong><span style="font-size:11.5px;color:#8A96A6">Administrateur</span></span></div>
+</nav>
+<div class="main">
+<header class="tb">
+<div style="display:flex;flex-direction:column;gap:2px;margin-right:6px"><h1>Flotte</h1><span class="sub">42 véhicules motorisés · 27 remorques · 69 unités au total</span></div>
+<label class="search"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span class="sr">Rechercher un véhicule</span><input type="search" placeholder="Unité, plaque, modèle, NIV…"></label>
+<div style="margin-left:auto;display:flex;align-items:center;gap:10px">
+<button class="btn" type="button"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Exporter</button>
+<button class="btn p" type="button"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg>Ajouter un véhicule</button>
+</div>
+</header>
+<main class="content">
+
+<div class="grid" style="grid-template-columns:repeat(5,minmax(0,1fr))">
+<div class="card kpi"><span class="l">En route</span><span class="v">29</span><span class="sub">69 % des véhicules motorisés</span></div>
+<div class="card kpi"><span class="l">Disponibles</span><span class="v">9</span><span class="sub">7 tracteurs · 2 porteurs</span></div>
+<div class="card kpi"><span class="l">À l'atelier</span><span class="v" style="color:#C2410C">4</span><span class="sub">1 non conforme · 3 en entretien</span></div>
+<div class="card kpi"><span class="l">Âge moyen de la flotte</span><span class="v">4,1 ans</span><span class="sub">Kilométrage moyen 342 000 km</span></div>
+<div class="card kpi"><span class="l">Coût d'exploitation</span><span class="v">1,92 $ / km</span><span class="sub"><span class="badge b-green">−0,05 $</span> vs trimestre précédent</span></div>
+</div>
+
+<div class="grid" style="grid-template-columns:minmax(0,1fr) 340px;align-items:start">
+<div class="card" style="min-width:0">
+<div class="ch"><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="chip on" type="button">Tous (69)</button><button class="chip" type="button">Tracteurs (34)</button><button class="chip" type="button">Porteurs (8)</button><button class="chip" type="button">Remorques (27)</button><button class="chip" type="button" style="color:#B91C1C">Alertes (3)</button></div><span class="sub">Trié par unité</span></div>
+<div class="tw"><table>
+<thead><tr><th>Unité</th><th>Véhicule</th><th>Chauffeur</th><th class="num">Odomètre</th><th style="min-width:150px">Prochain entretien</th><th>Statut · documents</th></tr></thead>
+<tbody>
+<tr><td><button type="button" class="lnk">T-104</button></td><td><strong>Volvo VNL 760</strong><div class="sub">2020 · tracteur · L48 2210</div></td><td style="white-space:nowrap">É. Bouchard</td><td class="num">498 120 km</td><td><div style="display:flex;align-items:center;gap:8px"><span class="bar"><span class="f" style="width:74%"></span></span><span class="sub num">6 400 km</span></div></td><td><span class="badge b-amber">Pneus à vérifier</span><div class="sub" style="margin-top:4px">Documents conformes</div></td></tr>
+<tr><td><button type="button" class="lnk">T-108</button></td><td><strong>Freightliner Cascadia</strong><div class="sub">2022 · tracteur · L51 0984</div></td><td style="white-space:nowrap">J. Gagnon</td><td class="num">286 450 km</td><td><div style="display:flex;align-items:center;gap:8px"><span class="bar"><span class="f" style="width:55%"></span></span><span class="sub num">11 200 km</span></div></td><td><span class="badge b-blue">En route</span><div class="sub" style="margin-top:4px">Documents conformes</div></td></tr>
+<tr><td><button type="button" class="lnk">T-112</button></td><td><strong>Kenworth T680</strong><div class="sub">2021 · tracteur · L49 7731</div></td><td style="white-space:nowrap">M. Tremblay</td><td class="num">362 900 km</td><td><div style="display:flex;align-items:center;gap:8px"><span class="bar"><span class="f" style="width:92%;background:#D97706"></span></span><span class="sub num">2 100 km</span></div></td><td><span class="badge b-blue">En route</span><div class="sub" style="margin-top:4px">Documents conformes</div></td></tr>
+<tr><td><button type="button" class="lnk">T-115</button></td><td><strong>Volvo VNL 860</strong><div class="sub">2023 · tracteur · L53 1172</div></td><td style="white-space:nowrap">N. Côté</td><td class="num">148 300 km</td><td><div style="display:flex;align-items:center;gap:8px"><span class="bar"><span class="f" style="width:25%"></span></span><span class="sub num">18 700 km</span></div></td><td><span class="badge b-blue">En route</span><div class="sub" style="margin-top:4px">Documents conformes</div></td></tr>
+<tr class="sel"><td><button type="button" class="lnk">T-118</button></td><td><strong>Freightliner Cascadia</strong><div class="sub">2021 · tracteur · L49 3348</div></td><td style="white-space:nowrap"><span class="muted">Non assigné</span></td><td class="num">412 380 km</td><td><div style="display:flex;align-items:center;gap:8px"><span class="bar"><span class="f" style="width:90%;background:#D97706"></span></span><span class="sub num">2 620 km</span></div></td><td><span class="badge b-red">Non conforme</span><div style="margin-top:4px"><span class="badge b-red">1 document expiré</span></div></td></tr>
+<tr><td><button type="button" class="lnk">T-121</button></td><td><strong>Peterbilt 579</strong><div class="sub">2019 · tracteur · L46 8820</div></td><td style="white-space:nowrap">K. Benali</td><td class="num">611 740 km</td><td><div style="display:flex;align-items:center;gap:8px"><span class="bar"><span class="f" style="width:80%"></span></span><span class="sub num">4 900 km</span></div></td><td><span class="badge b-blue">En route</span><div class="sub" style="margin-top:4px">Documents conformes</div></td></tr>
+<tr><td><button type="button" class="lnk">T-126</button></td><td><strong>International LT</strong><div class="sub">2022 · tracteur · L52 4417</div></td><td style="white-space:nowrap">P. Lavoie</td><td class="num">275 100 km</td><td><div style="display:flex;align-items:center;gap:8px"><span class="bar"><span class="f" style="width:63%"></span></span><span class="sub num">9 300 km</span></div></td><td><span class="badge b-blue">En route</span><div class="sub" style="margin-top:4px">Documents conformes</div></td></tr>
+<tr><td><button type="button" class="lnk">T-127</button></td><td><strong>Mack Anthem</strong><div class="sub">2020 · tracteur · L47 5563</div></td><td style="white-space:nowrap">M. Diallo</td><td class="num">455 020 km</td><td><div style="display:flex;align-items:center;gap:8px"><span class="bar"><span class="f" style="width:100%;background:#B91C1C"></span></span><span class="sub num" style="color:#B91C1C">+1 240 km</span></div></td><td><span class="badge b-gray">À l'atelier</span><div class="sub" style="margin-top:4px">Documents conformes</div></td></tr>
+<tr><td><button type="button" class="lnk">T-131</button></td><td><strong>Kenworth T680</strong><div class="sub">2022 · tracteur · L51 9906</div></td><td style="white-space:nowrap">S. Roy</td><td class="num">231 600 km</td><td><div style="display:flex;align-items:center;gap:8px"><span class="bar"><span class="f" style="width:44%"></span></span><span class="sub num">14 000 km</span></div></td><td><span class="badge b-blue">En route</span><div class="sub" style="margin-top:4px">Documents conformes</div></td></tr>
+<tr><td><button type="button" class="lnk">T-133</button></td><td><strong>Western Star 49X</strong><div class="sub">2023 · tracteur · L53 2207</div></td><td style="white-space:nowrap">S. Pelletier</td><td class="num">96 400 km</td><td><div style="display:flex;align-items:center;gap:8px"><span class="bar"><span class="f" style="width:16%"></span></span><span class="sub num">21 000 km</span></div></td><td><span class="badge b-gray">À l'atelier</span><div class="sub" style="margin-top:4px">Documents conformes</div></td></tr>
+<tr><td><button type="button" class="lnk">P-203</button></td><td><strong>Hino 338</strong><div class="sub">2021 · porteur 26 pi · L49 1150</div></td><td style="white-space:nowrap">L. Morin</td><td class="num">188 200 km</td><td><div style="display:flex;align-items:center;gap:8px"><span class="bar"><span class="f" style="width:70%"></span></span><span class="sub num">7 500 km</span></div></td><td><span class="badge b-green">Disponible</span><div class="sub" style="margin-top:4px">Documents conformes</div></td></tr>
+<tr><td><button type="button" class="lnk">R-214</button></td><td><strong>Utility 3000R</strong><div class="sub">2019 · remorque réfrigérée 53 pi · R33 7721</div></td><td style="white-space:nowrap"><span class="muted">—</span></td><td class="num">—</td><td><div style="display:flex;align-items:center;gap:8px"><span class="bar"><span class="f" style="width:60%"></span></span><span class="sub num">32 jours</span></div></td><td><span class="badge b-green">Disponible</span><div style="margin-top:4px"><span class="badge b-amber">Assurance dans 12 j</span></div></td></tr>
+</tbody></table></div>
+<div class="sub" style="margin-top:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px"><span>12 unités affichées sur 69</span><span style="display:flex;gap:6px"><button class="btn sm" type="button">Précédent</button><button class="btn sm" type="button">Suivant</button></span></div>
+</div>
+
+<div class="card" style="min-width:0">
+<div style="display:flex;gap:12px;align-items:flex-start">
+<span style="width:48px;height:48px;border-radius:12px;background:#1F2733;color:#fff;display:inline-flex;align-items:center;justify-content:center;flex:0 0 48px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:24px;height:24px"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg></span>
+<div style="flex:1;min-width:0"><h2 style="font-size:17px">T-118 · Freightliner Cascadia</h2><span class="sub">Tracteur · 2021 · Detroit DD15 · boîte DT12</span></div>
+<span class="badge b-red">Non conforme</span>
+</div>
+<div style="margin-top:12px;background:#FEE2E2;border-radius:10px;padding:10px 12px;display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#B91C1C"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px;margin-top:1px"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/></svg><span><strong>Vérification mécanique SAAQ expirée le 9 nov. 2026.</strong> Le véhicule est automatiquement retiré du planning jusqu'à la mise à jour du certificat.</span></div>
+<div class="sec">Identification</div>
+<dl class="kv"><dt>NIV</dt><dd>3AKJHHDR6MSMA4812</dd><dt>Plaque</dt><dd>L49 3348 (Québec)</dd><dt>Odomètre</dt><dd>412 380 km</dd><dt>Acquisition</dt><dd>Mars 2021 · location-achat</dd><dt>Chauffeur habituel</dt><dd>Éric Bouchard</dd></dl>
+<div class="sec">Documents et échéances</div>
+<div class="doc"><span style="flex:1">Immatriculation SAAQ</span><span class="sub">31 mars 2027</span><span class="badge b-green">Valide</span></div>
+<div class="doc"><span style="flex:1">Assurance responsabilité</span><span class="sub">15 janv. 2027</span><span class="badge b-green">Valide</span></div>
+<div class="doc"><span style="flex:1">Vérification mécanique SAAQ</span><span class="sub">9 nov. 2026</span><span class="badge b-red">Expirée</span></div>
+<div class="doc"><span style="flex:1">Permis IRP / IFTA</span><span class="sub">31 déc. 2026</span><span class="badge b-amber">48 jours</span></div>
+<div class="doc"><span style="flex:1">Inspection CVSA</span><span class="sub">30 juin 2027</span><span class="badge b-green">Valide</span></div>
+<div class="sec">Entretien préventif (PEP)</div>
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><span class="bar"><span class="f" style="width:90%;background:#D97706"></span></span><span class="sub num">2 620 km restants</span></div>
+<div class="sub">Prochain entretien à 415 000 km · dernier le 9 oct. 2026 (huile, filtres, graissage) · 3 ordres de travail en 2026</div>
+<div class="sec">Coûts du mois</div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+<div style="background:#F8FAFC;border-radius:8px;padding:10px"><div class="sub">Carburant</div><div style="font-weight:700;font-size:15px">6 240 $</div><div class="sub">35,8 L/100 km</div></div>
+<div style="background:#F8FAFC;border-radius:8px;padding:10px"><div class="sub">Entretien</div><div style="font-weight:700;font-size:15px">1 180 $</div><div class="sub">2 interventions</div></div>
+<div style="background:#F8FAFC;border-radius:8px;padding:10px"><div class="sub">Coût au km</div><div style="font-weight:700;font-size:15px">1,88 $</div><div class="sub">flotte 1,92 $</div></div>
+</div>
+<div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap"><a class="btn sm p" href="Atelier.dc.html">Ouvrir l'ordre de travail</a><a class="btn sm" href="Conformite.dc.html">Mettre à jour le certificat</a><button class="btn sm" type="button">Historique</button></div>
+</div>
+</div>
+
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1340}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

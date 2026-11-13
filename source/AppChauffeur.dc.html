@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>GFK · Application chauffeur</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F3F5F8;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#1F2733;-webkit-font-smoothing:antialiased;font-size:14px}
+a{color:#1F2733;text-decoration:none}a:hover{color:#C2410C}
+h1,h2,h3,p,ul{margin:0}ul{padding:0;list-style:none}
+.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.wm{font-family:"Exo 2",Inter,sans-serif;font-style:italic;font-weight:700;font-size:10px;color:#AEB8C6}
+.card{background:#fff;border:1px solid #E3E8EF;border-radius:14px;padding:12px}
+.sub{font-size:12px;color:#5B6675}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;font-size:11.5px;font-weight:600;white-space:nowrap;line-height:1.4}
+.b-green{background:#E6F4EA;color:#166534}.b-blue{background:#E8F0FE;color:#1D4ED8}.b-amber{background:#FEF3C7;color:#92400E}.b-red{background:#FEE2E2;color:#B91C1C}.b-gray{background:#EEF1F5;color:#475467}.b-orange{background:#FFEDD5;color:#C2410C}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 16px;border-radius:12px;border:1px solid #D5DBE3;background:#fff;color:#1F2733;font:inherit;font-size:14px;font-weight:600;cursor:pointer;width:100%}
+.btn.p{background:#C2410C;border-color:#C2410C;color:#fff}
+.btn.d{background:#1F2733;border-color:#1F2733;color:#fff}
+.bar{height:6px;border-radius:3px;background:#E3E8EF;overflow:hidden;flex:1;display:block}
+.bar .f{display:block;height:100%;border-radius:3px;background:#2a78d6}
+.chk{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid #EEF1F5;font-size:13.5px}
+.chk:last-of-type{border-bottom:0}
+.chk input{width:20px;height:20px;margin:0;accent-color:#15803D;flex:0 0 20px}
+.tab{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10.5px;font-weight:600;color:#7F8B9B;flex:1;min-height:44px;justify-content:center}
+.tab.on{color:#C2410C}
+.tab .i{width:22px;height:22px}
+</style>
+</helmet>
+<div style="width:390px;height:844px;background:#F3F5F8;display:flex;flex-direction:column;overflow:hidden;position:relative">
+<div style="background:#161C26;color:#fff;padding:46px 20px 14px;display:flex;align-items:center;gap:12px">
+<div style="display:flex;flex-direction:column;gap:2px">
+<svg viewBox="0 0 340 100" width="68" height="20" aria-hidden="true"><g transform="translate(22 0) skewX(-12)" fill="none" stroke="#FFFFFF" stroke-width="22"><path d="M89 11H11V89h67V52H52"/><path d="M123 100V11h74M123 53h58"/><path d="M235 0v100M312 0L238 58M258 42l52 58"/></g></svg>
+<span class="wm">Transports &amp; logistics</span>
+</div>
+<div style="margin-left:auto;display:flex;align-items:center;gap:10px">
+<div style="text-align:right;line-height:1.25"><strong style="font-size:13px">Karim Benali</strong><div style="font-size:11px;color:#AEB8C6">T-121 · en service depuis 05 h 48</div></div>
+<span style="width:36px;height:36px;border-radius:50%;background:#F4731C;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700">KB</span>
+</div>
+</div>
+
+<div style="flex:1;overflow:auto;padding:12px 14px 0;display:flex;flex-direction:column;gap:10px">
+<div style="background:#1F2733;color:#fff;border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:7px">
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#AEB8C6;font-weight:600">Mission en cours</span><span class="badge" style="background:#F4731C;color:#fff">En route</span></div>
+<div style="font-size:17px;font-weight:700">Trois-Rivières → Boston (MA)</div>
+<div style="font-size:12.5px;color:#C9D1DC">TR-26-1187 · Papiers Laurentides · 20 palettes · 17,3 t</div>
+<div style="display:flex;align-items:center;gap:10px;margin-top:4px"><span class="bar" style="background:#2A3442"><span class="f" style="width:35%;background:#F4731C"></span></span><span style="font-size:12px;font-weight:600">35 %</span></div>
+<div style="display:flex;gap:8px;margin-top:4px">
+<div style="flex:1;background:#2A3442;border-radius:10px;padding:8px 10px"><div style="font-size:10.5px;color:#AEB8C6">Prochaine étape</div><div style="font-size:12.5px;font-weight:600">Douane Stanstead · 13 h 30</div></div>
+<div style="flex:1;background:#2A3442;border-radius:10px;padding:8px 10px"><div style="font-size:10.5px;color:#AEB8C6">Livraison prévue</div><div style="font-size:12.5px;font-weight:600">18 h 45 · quai 7</div></div>
+</div>
+</div>
+
+<div class="card" style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:center"><strong style="font-size:13.5px">Heures de service</strong><span class="badge b-red">Cycle à 94 %</span></div>
+<div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px"><span>Conduite aujourd'hui</span><strong>9 h 10 / 13 h</strong></div><span class="bar"><span class="f" style="width:70%"></span></span></div>
+<div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px"><span>Cycle 7 jours</span><strong style="color:#B91C1C">65 h 50 / 70 h</strong></div><span class="bar"><span class="f" style="width:94%;background:#B91C1C"></span></span></div>
+<div class="sub">Repos de 10 h requis après la livraison · dispatch prévenu.</div>
+</div>
+
+<div class="card">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><strong style="font-size:13.5px">Ronde de sécurité</strong><span class="badge b-green">Complétée 06 h 12</span></div>
+<label class="chk"><input type="checkbox" checked>Freins, pneus et roues</label>
+<label class="chk"><input type="checkbox" checked>Éclairage et réflecteurs</label>
+<label class="chk"><input type="checkbox" checked>Attelage et sellette</label>
+<label class="chk"><input type="checkbox" checked>Arrimage et scellés (n° 448120)</label>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:8px">
+<button class="btn d" type="button"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Je suis arrivé à la douane</button>
+<div style="display:flex;gap:8px">
+<button class="btn" type="button" style="flex:1"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Documents</button>
+<button class="btn" type="button" style="flex:1;color:#B91C1C"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/></svg>Signaler</button>
+</div>
+</div>
+</div>
+
+<div style="background:#fff;border-top:1px solid #E3E8EF;display:flex;padding:6px 6px 18px">
+<a href="AppChauffeur.dc.html" class="tab on"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>Mission</a>
+<a href="AppChauffeur.dc.html" class="tab"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>Horaire</a>
+<a href="AppChauffeur.dc.html" class="tab"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Inspection</a>
+<a href="AppChauffeur.dc.html" class="tab"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Messages</a>
+<a href="AppChauffeur.dc.html" class="tab"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Profil</a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+{
+  "v": 3,
+  "createdOnFiles": {"v": 1, "at": "2026-11-12T22:53:28Z"},
+  "title": "Maquette GFK",
+  "launch": {"view": "focused", "file": "Main.dc.html"},
+  "pages": [],
+  "boards": {
+    "Charte.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 960, "title": "Charte graphique"},
+    "Connexion.dc.html": {"x": 1520, "y": 0, "w": 1440, "h": 900, "title": "Connexion", "expand": "fill", "is_interactive": true},
+    "Main.dc.html": {"x": 0, "y": 1360, "w": 1440, "h": 1500, "title": "Tableau de bord", "expand": "fill", "is_interactive": true},
+    "Planning.dc.html": {"x": 1520, "y": 1360, "w": 1440, "h": 1180, "title": "Planning & dispatch", "expand": "fill", "is_interactive": true},
+    "Commandes.dc.html": {"x": 3040, "y": 1360, "w": 1440, "h": 1180, "title": "Commandes de transport", "expand": "fill", "is_interactive": true},
+    "Flotte.dc.html": {"x": 0, "y": 3260, "w": 1440, "h": 1340, "title": "Flotte", "expand": "fill", "is_interactive": true},
+    "Chauffeurs.dc.html": {"x": 1520, "y": 3260, "w": 1440, "h": 1180, "title": "Chauffeurs", "expand": "fill", "is_interactive": true},
+    "Atelier.dc.html": {"x": 3040, "y": 3260, "w": 1440, "h": 1680, "title": "Atelier & entretien", "expand": "fill", "is_interactive": true},
+    "Facturation.dc.html": {"x": 0, "y": 5340, "w": 1440, "h": 1300, "title": "Facturation", "expand": "fill", "is_interactive": true},
+    "Clients.dc.html": {"x": 1520, "y": 5340, "w": 1440, "h": 1080, "title": "Clients", "expand": "fill", "is_interactive": true},
+    "Conformite.dc.html": {"x": 3040, "y": 5340, "w": 1440, "h": 1140, "title": "Conformité & documents", "expand": "fill", "is_interactive": true},
+    "Rapports.dc.html": {"x": 0, "y": 7040, "w": 1440, "h": 1080, "title": "Rapports", "expand": "fill", "is_interactive": true},
+    "Parametres.dc.html": {"x": 1520, "y": 7040, "w": 1440, "h": 1520, "title": "Paramètres & rôles", "expand": "fill", "is_interactive": true},
+    "AppChauffeur.dc.html": {"x": 3040, "y": 7040, "w": 390, "h": 844, "title": "App chauffeur (mobile)", "is_interactive": true, "radius": 40}
+  },
+  "order": [
+    "Charte.dc.html",
+    "Connexion.dc.html",
+    "Main.dc.html",
+    "Planning.dc.html",
+    "Commandes.dc.html",
+    "Flotte.dc.html",
+    "Chauffeurs.dc.html",
+    "Atelier.dc.html",
+    "Facturation.dc.html",
+    "Clients.dc.html",
+    "Conformite.dc.html",
+    "Rapports.dc.html",
+    "Parametres.dc.html",
+    "AppChauffeur.dc.html"
+  ],
+  "notes": {
+    "n1": {"x": 0, "y": -280, "text": "GFK · Identité visuelle et accès", "kind": "title1", "maxW": 2960},
+    "n2": {"x": 0, "y": 1080, "text": "Pilotage et exploitation", "kind": "title1", "maxW": 4480},
+    "n3": {"x": 0, "y": 2980, "text": "Ressources : flotte, chauffeurs, atelier", "kind": "title1", "maxW": 4480},
+    "n4": {"x": 0, "y": 5060, "text": "Finance, clients et conformité", "kind": "title1", "maxW": 4480},
+    "n5": {"x": 0, "y": 6760, "text": "Analyse, administration et application mobile", "kind": "title1", "maxW": 4480},
+    "n0": {"x": 3040, "y": 0, "w": 600, "text": "Maquette navigable\n\nOuvrez un écran en mode lecture (bouton Play) puis cliquez dans le menu latéral pour passer d'un module à l'autre, comme dans le vrai logiciel.\n\nHypothèses de travail : GFK Transports & logistics, 42 camions (34 tracteurs, 8 porteurs) et 27 remorques, exploitation Québec / Ontario / États-Unis (SAAQ, permis classe 1, heures de service, entretien préventif PEP). Toutes les données affichées sont fictives.", "fill": "orange"}
+  },
+  "designSystems": []
+}
