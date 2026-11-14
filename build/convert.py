@@ -54,7 +54,9 @@ def relink(body: str) -> str:
 
 
 def add_nav_toggle(body: str) -> str:
-    marker = '<span class="wm">Transports &amp; logistics</span>\n</a>'
+    # le logo officiel (img) termine le lien du menu latéral ; le bouton de menu mobile vient juste après
+    marker = 'style="display:block;height:auto">\n</a>'
+    assert marker in body, "logo du menu latéral introuvable"
     return body.replace(marker, marker + "\n" + NAV_TOGGLE, 1)
 
 
@@ -82,7 +84,53 @@ def connexion(body: str) -> str:
     old = "GFK · version 1.0 · données hébergées au Canada</div>"
     new = ('GFK · version 1.0 · données hébergées au Canada · '
            '<a href="charte.html" style="color:#AEB8C6">Charte graphique de la maquette</a></div>')
-    return body.replace(old, new, 1)
+    body = body.replace(old, new, 1)
+    # Démonstration : le bouton mène directement au tableau de bord, sans identifiants.
+    body = body.replace('<form style=', '<form action="tableau-de-bord.html" method="get" style=', 1)
+    body = body.replace('placeholder="prenom.nom@gfk.ca" autocomplete="username">',
+                        'placeholder="prenom.nom@gfk.ca" autocomplete="username" value="demo@gfk.ca">', 1)
+    body = body.replace('placeholder="••••••••••" autocomplete="current-password">',
+                        'placeholder="••••••••••" autocomplete="current-password" value="demonstration">', 1)
+    note = ('<div style="font-size:12.5px;color:#5B6675;text-align:center;line-height:1.5;margin-top:-6px">'
+            'Maquette de démonstration : cliquez sur « Se connecter », aucun identifiant n\'est requis.</div>')
+    marker = 'Se connecter<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>'
+    assert marker in body, "bouton Se connecter introuvable"
+    return body.replace(marker, marker + "\n" + note, 1)
+
+
+def png_size(path: pathlib.Path):
+    data = path.read_bytes()
+    return int.from_bytes(data[16:20], "big"), int.from_bytes(data[20:24], "big")
+
+
+LOGO_RE = re.compile(
+    r'<svg viewBox="0 0 340 100" width="(\d+)" height="\d+"[^>]*>.*?stroke="(#[0-9A-Fa-f]{6})".*?</svg>'
+    r'\s*<span class="wm"[^>]*>Transports &amp; logistics</span>', re.S)
+# largeur du svg d'origine -> largeur du logo officiel affiché
+LOGO_WIDTHS = {"96": 160, "190": 280, "68": 100, "170": 240}
+
+
+def replace_logo(body: str) -> str:
+    """Remplace le logo redessiné de la maquette par le logo officiel (PNG blanc ou noir)."""
+    def sub(m):
+        width = LOGO_WIDTHS[m.group(1)]
+        blanc = m.group(2).upper() == "#FFFFFF"
+        name = "logo-gfk-blanc.png" if blanc else "logo-gfk-noir.png"
+        pw, ph = png_size(OUT / "assets" / name)
+        height = round(width * ph / pw)
+        return (f'<img class="logo-img" src="assets/{name}" alt="GFK Transports &amp; logistics" '
+                f'width="{width}" height="{height}" style="display:block;height:auto">')
+    body, n = LOGO_RE.subn(sub, body)
+    assert n >= 1, "logo introuvable"
+    return body
+
+
+def charte_captions(body: str) -> str:
+    body = body.replace("Logo d'origine : lettres anthracite sur fond clair, vectorisé pour l'interface",
+                        "Logo officiel fourni par GFK Transports &amp; logistics, utilisé tel quel", 1)
+    body = body.replace("Lettres inclinées à 12°, trait d'épaisseur constante, zone de protection égale à la hauteur du K.",
+                        "Zone de protection minimale égale à la hauteur de la lettre K ; ne pas déformer, recolorer ni redessiner.", 1)
+    return body
 
 
 def app_chauffeur(body: str) -> str:
@@ -105,7 +153,8 @@ def page(title: str, helmet: str, body: str, extra_scripts=()) -> str:
         "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n"
         f"<title>{title}</title>\n"
         "<meta name=\"robots\" content=\"noindex\">\n"
-        "<link rel=\"icon\" type=\"image/svg+xml\" href=\"favicon.svg\">\n"
+        "<link rel=\"icon\" type=\"image/png\" href=\"favicon.png\">\n"
+        "<link rel=\"apple-touch-icon\" href=\"apple-touch-icon.png\">\n"
         f"{helmet}\n"
         "<link rel=\"stylesheet\" href=\"demo.css\">\n"
         "</head>\n<body>\n"
@@ -120,6 +169,9 @@ def main():
     for src, name in PAGES.items():
         title, helmet, body = extract((SRC / src).read_text(encoding="utf-8"))
         body = relink(body)
+        body = replace_logo(body)
+        if src == "Charte.dc.html":
+            body = charte_captions(body)
         extra = ()
         if src == "Commandes.dc.html":
             body = commandes(body)
